@@ -8,4 +8,5 @@
     <string name="nombre">Nombre(s)</string>
     <string name="apellidos">Apellidos</string>
     <string name="confirmcontrase_a">Confirmar Contraseña</string>
+    <string name="continuar">Continuar</string>
 </resources>

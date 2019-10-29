@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <array name="profesor">Profesor</array>
-    <array name="alumno">Alumno</array>
-    <array name="padre">Padre</array>
+    <string-array name="arrayRoles">
+        <item>-Seleccionar-</item>
+        <item>Profesor</item>
+        <item>Alumno</item>
+        <item>Padre</item>
+    </string-array>
 </resources>
