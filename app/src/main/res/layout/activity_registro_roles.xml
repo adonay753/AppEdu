@@ -84,7 +84,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText4"
         android:entries="@array/arrayRoles"
-
         android:background="@drawable/borde" />
 
     <Button
@@ -92,11 +91,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
+        android:drawableBottom="@drawable/borde"
         android:text="@string/continuar"
         android:onClick="continuar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+        app:layout_constraintTop_toBottomOf="@+id/spinner"
+        android:shadowColor="@color/primary_text"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
