@@ -18,6 +18,7 @@ public class RegistroRoles<spinner, Seleccionar, adapterSpinner> extends AppComp
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro_roles);
 
+
     }
 
 }
