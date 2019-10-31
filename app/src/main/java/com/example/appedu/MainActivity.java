@@ -14,14 +14,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
-    public void logonboton(View view) {
-        Intent i = new Intent(this, SesionIniciada.class);
+    public void logonboton (View view) {
+        Intent i = new Intent(this, mainSesion.class);
         startActivity(i);
         Toast.makeText(this, "Bienvenido", Toast.LENGTH_SHORT).show();
     }
-    public void regis (View view){
-        Intent i =new Intent(this,RegistroRoles.class);
+
+    public void regis (View view) {
+        Intent i= new Intent(this,registroRoles.class);
         startActivity(i);
-        Toast.makeText(this,"Ingresa tus datos y elije tu Rol",Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Bienvenido",Toast.LENGTH_SHORT).show();
     }
 }

@@ -13,41 +13,41 @@
         android:id="@+id/editText2"
         android:layout_width="274dp"
         android:layout_height="49dp"
+        android:layout_marginTop="352dp"
+        android:background="@drawable/borde"
+        android:drawableStart="@drawable/baseline_person_24"
+        android:drawablePadding="10dp"
         android:ems="10"
         android:hint="@string/usuario"
+        android:importantForAutofill="no"
         android:inputType="text"
         android:padding="10dp"
-        android:drawableLeft="@drawable/baseline_person_24"
-        android:drawablePadding="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:importantForAutofill="no"
-        android:background="@drawable/borde"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editText"
         android:layout_width="274dp"
         android:layout_height="49dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/borde"
+        android:drawableStart="@drawable/baseline_lock_white_24"
+        android:drawablePadding="10dp"
         android:ems="10"
         android:hint="@string/contrase_a"
         android:inputType="textPassword"
-        android:drawablePadding="10dp"
-        android:drawableLeft="@drawable/baseline_lock_white_24"
         android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText2"
-        app:layout_constraintVertical_bias="0.0"
-        android:background="@drawable/borde"/>
+        android:autofillHints="" tools:targetApi="o"/>
 
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="32dp"
         android:drawableBottom="@drawable/borde"
         android:onClick="logonboton"
         android:text="@string/ingresar"
@@ -57,15 +57,15 @@
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/registro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:drawableBottom="@color/primary_dark"
         android:onClick="regis"
         android:text="@string/registrate"
-        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />=
+        app:layout_constraintTop_toBottomOf="@+id/button2" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
