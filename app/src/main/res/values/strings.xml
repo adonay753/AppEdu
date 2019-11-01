@@ -10,5 +10,10 @@
     <string name="apellidos">Apellidos</string>
     <string name="confirmcontrase_a">Confirmar Contraseña</string>
     <string name="continuar">Continuar</string>
-
+    <string name="regProf">Profesor</string>
+    <string name="regAlum">Alumno</string>
+    <string name="regPad">Padre</string>
+    <string name="mat">Materia(s)</string>
+    <string name="cedula">Cedula Identidad</string>
+    <string name="cedulaHij">C.I. Hijo</string>
 </resources>
