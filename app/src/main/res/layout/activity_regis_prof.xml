@@ -7,11 +7,24 @@
     tools:context=".regisProf"
     android:background="@drawable/material">
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="214dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="124dp"
+        android:background="@drawable/borde"
+        android:padding="10dp"
+        android:text="@string/ejem"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <EditText
         android:id="@+id/editText1"
         android:layout_width="274dp"
         android:layout_height="49dp"
-        android:layout_marginTop="160dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/borde"
         android:ems="10"
         android:hint="@string/mat"
         android:importantForAutofill="no"
@@ -19,8 +32,20 @@
         android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@drawable/borde"/>
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/continuar"
+        android:onClick="regisProfe"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText1" />
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

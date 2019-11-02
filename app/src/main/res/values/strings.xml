@@ -16,4 +16,8 @@
     <string name="mat">Materia(s)</string>
     <string name="cedula">Cedula Identidad</string>
     <string name="cedulaHij">C.I. Hijo</string>
+    <string name="ejem">Ej, matematicas, lenguaje, ...</string>
+    <string name="ci">C.I.</string>
+    <string name="cie">Ingrese su C.I.</string>
+
 </resources>
