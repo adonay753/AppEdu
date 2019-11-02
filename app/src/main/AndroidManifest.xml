@@ -11,14 +11,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".regisAlumPad"></activity>
-        <activity android:name=".regisProf" />
-        <activity android:name=".registroRoles" />
+        <activity android:name=".Login.regisAlumPad"></activity>
+        <activity android:name=".Login.regisProf" />
+        <activity android:name=".Login.registroRoles" />
         <activity
             android:name=".mainSesion"
             android:label="@string/title_activity_main_sesion"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".Login.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,4 +1,4 @@
-package com.example.appedu;
+package com.example.appedu.Login;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
+
+import com.example.appedu.R;
 
 public class registroRoles extends AppCompatActivity {
 
