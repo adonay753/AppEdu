@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".registroRoles"
+    tools:context=".Login.registroRoles"
     android:background="@drawable/material">
 
     <EditText
@@ -102,6 +102,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonProf" />
+
+    <Spinner
+        android:id="@+id/idspinner"
+        android:layout_width="261dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/borde"
+        android:backgroundTintMode="add"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonEst" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
