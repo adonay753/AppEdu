@@ -69,50 +69,17 @@
         app:layout_constraintTop_toBottomOf="@+id/editText3"
         android:background="@drawable/borde"/>
 
-    <Button
-        android:id="@+id/buttonProf"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:onClick="regisProf"
-        android:text="@string/regProf"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText4" />
-
-
-    <Button
-        android:id="@+id/buttonEst"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:onClick="regisAlum"
-        android:text="@string/regAlum"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonPad" />
-
-    <Button
-        android:id="@+id/buttonPad"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="@string/regPad"
-        android:onClick="regisPad"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonProf" />
 
     <Spinner
         android:id="@+id/idspinner"
         android:layout_width="261dp"
         android:layout_height="51dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="32dp"
         android:background="@drawable/borde"
         android:backgroundTintMode="add"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonEst" />
+        app:layout_constraintTop_toBottomOf="@+id/editText4" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
