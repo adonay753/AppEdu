@@ -19,5 +19,6 @@
     <string name="ejem">Ej, matematicas, lenguaje, ...</string>
     <string name="ci">C.I.</string>
     <string name="cie">Ingrese su C.I.</string>
+    <string name="title_activity_main_notas">mainNotas</string>
 
 </resources>

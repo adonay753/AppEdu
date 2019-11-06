@@ -82,4 +82,47 @@
         app:layout_constraintTop_toBottomOf="@+id/editText4" />
 
 
+    <EditText
+        android:id="@+id/Mat"
+        android:layout_width="274dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/borde"
+        android:ems="10"
+        android:hint="@string/mat"
+        android:importantForAutofill="no"
+        android:inputType="text"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/idspinner" />
+
+
+    <EditText
+        android:id="@+id/ci"
+        android:layout_width="274dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/borde"
+        android:ems="10"
+        android:hint="@string/cedula"
+        android:importantForAutofill="no"
+        android:inputType="text"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/idspinner" />
+
+
+    <Button
+        android:id="@+id/cont"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="84dp"
+        android:text="@string/continuar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/Mat" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

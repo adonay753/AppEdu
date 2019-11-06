@@ -11,7 +11,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".Login.regisAlumPad"></activity>
+        <activity
+            android:name=".subirNotas.mainNotas"
+            android:label="@string/title_activity_main_notas"
+            android:theme="@style/AppTheme.NoActionBar.NoActionBar"></activity>
+        <activity android:name=".Login.regisAlumPad" />
         <activity android:name=".Login.regisProf" />
         <activity android:name=".Login.registroRoles" />
         <activity

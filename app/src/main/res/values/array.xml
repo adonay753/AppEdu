@@ -5,5 +5,7 @@
         <item>Profesor</item>
         <item>Alumno</item>
         <item>Padre</item>
+
     </string-array>
+
 </resources>
