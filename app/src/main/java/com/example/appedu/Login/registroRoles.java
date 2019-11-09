@@ -8,9 +8,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
-import android.widget.Toast;
 import com.example.appedu.R;
+import com.google.android.material.snackbar.Snackbar;
 
 
 public class registroRoles extends AppCompatActivity {
@@ -49,7 +48,6 @@ public class registroRoles extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
-                Toast.makeText(parent.getContext(),""+parent.getItemAtPosition(position).toString(),Toast.LENGTH_LONG).show();
                 if (parent.getItemAtPosition(position).toString().equals(selec)) {
 
                     a.setVisibility(view.GONE);
@@ -64,18 +62,18 @@ public class registroRoles extends AppCompatActivity {
                 }
                 if (parent.getItemAtPosition(position).toString().equals(alumn)) {
 
-                    a.setVisibility(view.GONE);
+                    a.setVisibility(View.GONE);
                     b.setVisibility(View.VISIBLE);
                     c.setVisibility(View.VISIBLE);
 
                 }
                 if (parent.getItemAtPosition(position).toString().equals(padr)) {
 
-                    a.setVisibility(view.GONE);
+                    Snackbar.make(view, "Ingrese el C.I. del Alumno", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+                    a.setVisibility(View.GONE);
                     b.setVisibility(View.VISIBLE);
                     c.setVisibility(View.VISIBLE);
                 }
-
 
             }
 

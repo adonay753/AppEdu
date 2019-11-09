@@ -15,8 +15,6 @@
             android:name=".subirNotas.mainNotas"
             android:label="@string/title_activity_main_notas"
             android:theme="@style/AppTheme.NoActionBar.NoActionBar"></activity>
-        <activity android:name=".Login.regisAlumPad" />
-        <activity android:name=".Login.regisProf" />
         <activity android:name=".Login.registroRoles" />
         <activity
             android:name=".mainSesion"
