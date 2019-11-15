@@ -1,7 +1,8 @@
-package com.example.appedu;
+package com.example.appedu.Notas;
 
 import android.os.Bundle;
 
+import com.example.appedu.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 

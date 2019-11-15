@@ -1,10 +1,9 @@
-package com.example.appedu;
+package com.example.appedu.Notas;
 
 import android.content.Intent;
-import android.icu.util.ValueIterator;
 import android.os.Bundle;
 
-import com.example.appedu.Login.registroRoles;
+import com.example.appedu.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
