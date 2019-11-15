@@ -22,6 +22,14 @@
 
     <include layout="@layout/content_main_notas" />
 
+    <Button
+        android:id="@+id/ver_notas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/visualizar_notas"
+        android:onClick="verNotas"/>
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"

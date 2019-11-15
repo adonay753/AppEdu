@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.appedu"
-    >
+    package="com.example.appedu">
 
     <application
         android:allowBackup="true"
@@ -11,20 +10,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar"
-        tools:ignore="GoogleAppIndexingWarning"
-        >
+        tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name=".mainNotas"
-            android:label="@string/title_activity_main_notas"
-            android:theme="@style/AppTheme.NoActionBar.NoActionBar"/>
+            android:name=".verNotas"
+            android:label="@string/title_activity_ver_notas"
+            android:theme="@style/AppTheme.NoActionBar.NoActionBar"></activity>
         <activity
             android:name=".Login.registroRoles"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".mainSesion"
             android:label="@string/title_activity_main_sesion"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Login.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -32,6 +30,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".mainNotas"
+            android:label="@string/title_activity_main_notas"
+            android:theme="@style/AppTheme.NoActionBar.NoActionBar" />
     </application>
 
 </manifest>

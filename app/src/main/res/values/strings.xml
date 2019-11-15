@@ -20,5 +20,7 @@
     <string name="ci">C.I.</string>
     <string name="cie">Ingrese su C.I.</string>
     <string name="title_activity_main_notas">mainNotas</string>
+    <string name="visualizar_notas">Ver Notas</string>
+    <string name="title_activity_ver_notas">verNotas</string>
 
 </resources>
