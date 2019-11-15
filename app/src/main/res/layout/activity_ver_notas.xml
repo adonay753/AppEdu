@@ -32,5 +32,4 @@
         app:layout_anchor="@+id/include"
         app:layout_anchorGravity="center" />
 
-
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
