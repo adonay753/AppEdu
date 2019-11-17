@@ -12,17 +12,16 @@
         android:theme="@style/AppTheme.NoActionBar"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
+            android:name=".mainSeci"
+            android:label="@string/title_activity_main_seci"
+            android:theme="@style/AppTheme.NoActionBar.NoActionBar"></activity>
+        <activity
             android:name=".Notas.verNotas"
             android:label="@string/title_activity_ver_notas"
-            android:theme="@style/AppTheme.NoActionBar.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar.NoActionBar" />
         <activity
             android:name=".Login.registroRoles"
             android:screenOrientation="portrait" />
-        <activity
-            android:name=".mainSesion"
-            android:label="@string/title_activity_main_sesion"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Login.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

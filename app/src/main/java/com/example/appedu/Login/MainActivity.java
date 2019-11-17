@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.appedu.R;
-import com.example.appedu.mainSesion;
+import com.example.appedu.mainSeci;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,7 +18,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
     public void logonboton (View view) {
-        Intent i = new Intent(this, mainSesion.class);
+        Intent i = new Intent(this, mainSeci.class);
+
         startActivity(i);
         Toast.makeText(this, "Bienvenido", Toast.LENGTH_SHORT).show();
     }
