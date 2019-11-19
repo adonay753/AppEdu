@@ -14,11 +14,8 @@
         <activity
             android:name=".mainSeci"
             android:label="@string/title_activity_main_seci"
-            android:theme="@style/AppTheme.NoActionBar.NoActionBar"></activity>
-        <activity
-            android:name=".Notas.verNotas"
-            android:label="@string/title_activity_ver_notas"
-            android:theme="@style/AppTheme.NoActionBar.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar.NoActionBar">
+        </activity>
         <activity
             android:name=".Login.registroRoles"
             android:screenOrientation="portrait" />
@@ -29,10 +26,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".Notas.mainNotas"
-            android:label="@string/title_activity_main_notas"
-            android:theme="@style/AppTheme.NoActionBar.NoActionBar" />
     </application>
 
 </manifest>
