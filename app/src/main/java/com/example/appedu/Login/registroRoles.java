@@ -1,6 +1,8 @@
 package com.example.appedu.Login;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -22,7 +24,9 @@ public class registroRoles extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_registro_roles);
 
         a = (EditText) findViewById(R.id.Mat);

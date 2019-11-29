@@ -1,4 +1,4 @@
-package com.example.appedu.ui.share;
+package com.example.appedu.ui.Notas;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

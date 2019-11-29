@@ -12,14 +12,14 @@
         android:theme="@style/AppTheme.NoActionBar"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
+            android:name=".Login.registroRoles"/>
+        <activity
             android:name=".mainSeci"
             android:label="@string/title_activity_main_seci"
             android:theme="@style/AppTheme.NoActionBar.NoActionBar">
         </activity>
         <activity
-            android:name=".Login.registroRoles"
-            android:screenOrientation="portrait" />
-        <activity android:name=".Login.MainActivity">
+            android:name=".Login.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

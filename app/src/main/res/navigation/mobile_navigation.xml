@@ -13,31 +13,31 @@
 
     <fragment
         android:id="@+id/nav_gallery"
-        android:name="com.example.appedu.ui.gallery.GalleryFragment"
+        android:name="com.example.appedu.ui.Archivos.GalleryFragment"
         android:label="@string/menu_gallery"
         tools:layout="@layout/fragment_gallery" />
 
     <fragment
         android:id="@+id/nav_slideshow"
-        android:name="com.example.appedu.ui.slideshow.SlideshowFragment"
+        android:name="com.example.appedu.ui.Acti_Tareas.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
 
     <fragment
         android:id="@+id/nav_tools"
-        android:name="com.example.appedu.ui.tools.ToolsFragment"
+        android:name="com.example.appedu.ui.Calendario.ToolsFragment"
         android:label="@string/menu_tools"
         tools:layout="@layout/fragment_tools" />
 
     <fragment
         android:id="@+id/nav_share"
-        android:name="com.example.appedu.ui.share.ShareFragment"
+        android:name="com.example.appedu.ui.Notas.ShareFragment"
         android:label="@string/menu_share"
         tools:layout="@layout/fragment_share" />
 
     <fragment
         android:id="@+id/nav_send"
-        android:name="com.example.appedu.ui.send.SendFragment"
+        android:name="com.example.appedu.ui.Subir_Notas.SendFragment"
         android:label="@string/menu_send"
         tools:layout="@layout/fragment_send" />
 </navigation>

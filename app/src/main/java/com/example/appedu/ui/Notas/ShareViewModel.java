@@ -1,4 +1,4 @@
-package com.example.appedu.ui.share;
+package com.example.appedu.ui.Notas;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
