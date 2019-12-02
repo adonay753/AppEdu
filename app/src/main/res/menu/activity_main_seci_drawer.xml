@@ -19,11 +19,11 @@
         <item
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/baseline_list_24"
-            android:title="@string/menu_slideshow" />
+            android:title="@string/menu_tareas" />
         <item
             android:id="@+id/nav_tools"
             android:icon="@drawable/baseline_calendar_today_24"
-            android:title="@string/menu_tools" />
+            android:title="@string/menu_calendario" />
     </group>
 
     <item android:title="Calificaciones">
@@ -31,7 +31,7 @@
             <item
                 android:id="@+id/nav_share"
                 android:icon="@drawable/outline_insert_drive_file_24"
-                android:title="@string/menu_share" />
+                android:title="@string/menu_notas" />
             <item
                 android:id="@+id/nav_send"
                 android:icon="@drawable/baseline_add_24"

@@ -20,19 +20,19 @@
     <fragment
         android:id="@+id/nav_slideshow"
         android:name="com.example.appedu.ui.Acti_Tareas.SlideshowFragment"
-        android:label="@string/menu_slideshow"
+        android:label="@string/menu_tareas"
         tools:layout="@layout/fragment_slideshow" />
 
     <fragment
         android:id="@+id/nav_tools"
         android:name="com.example.appedu.ui.Calendario.ToolsFragment"
-        android:label="@string/menu_tools"
+        android:label="@string/menu_calendario"
         tools:layout="@layout/fragment_tools" />
 
     <fragment
         android:id="@+id/nav_share"
         android:name="com.example.appedu.ui.Notas.ShareFragment"
-        android:label="@string/menu_share"
+        android:label="@string/menu_notas"
         tools:layout="@layout/fragment_share" />
 
     <fragment

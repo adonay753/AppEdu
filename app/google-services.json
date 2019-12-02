@@ -1,0 +1,56 @@
+{
+  "project_info": {
+    "project_number": "395591896060",
+    "firebase_url": "https://appedu-7ddf5.firebaseio.com",
+    "project_id": "appedu-7ddf5",
+    "storage_bucket": "appedu-7ddf5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:395591896060:android:3e93bdf2fe1e90bfdbc079",
+        "android_client_info": {
+          "package_name": "com.example.appedu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "395591896060-4ig41mi3ce70qr0v3c3uercsvsc9tuvb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.appedu",
+            "certificate_hash": "d858ba3e9ac22605bebd6bdaef6a11238f9b9c88"
+          }
+        },
+        {
+          "client_id": "395591896060-2s02cical7t51cre7vs977q3kivvpgtu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.appedu",
+            "certificate_hash": "e644d7c7f013835fd866b963e95556cadafd9fa8"
+          }
+        },
+        {
+          "client_id": "395591896060-e7jcjvvjmv88bp3d8ju9vcftr4v7ogah.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBVnoyWagm9DNUDzb2BjCdO81Y2OnhCNBg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "395591896060-e7jcjvvjmv88bp3d8ju9vcftr4v7ogah.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
