@@ -37,5 +37,6 @@
     <string name="menu_send">Subir Notas</string>
     <string name="notas">Notas</string>
     <string name="calificaciones">Calificaciones</string>
+    <string name="correo">Correo Electronico</string>
 
 </resources>
