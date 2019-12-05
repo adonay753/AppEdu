@@ -19,11 +19,19 @@
         <item
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/baseline_list_24"
+<<<<<<< HEAD
             android:title="@string/menu_tareas" />
         <item
             android:id="@+id/nav_tools"
             android:icon="@drawable/baseline_calendar_today_24"
             android:title="@string/menu_calendario" />
+=======
+            android:title="menu_slideshow" />
+        <item
+            android:id="@+id/nav_tools"
+            android:icon="@drawable/baseline_calendar_today_24"
+            android:title="menu_tools" />
+>>>>>>> remotes/origin/loginFirebase
     </group>
 
     <item android:title="Calificaciones">
@@ -31,7 +39,11 @@
             <item
                 android:id="@+id/nav_share"
                 android:icon="@drawable/outline_insert_drive_file_24"
+<<<<<<< HEAD
                 android:title="@string/menu_notas" />
+=======
+                android:title="menu_share" />
+>>>>>>> remotes/origin/loginFirebase
             <item
                 android:id="@+id/nav_send"
                 android:icon="@drawable/baseline_add_24"

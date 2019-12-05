@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "616790915772",
+    "firebase_url": "https://appedu-b0799.firebaseio.com",
+    "project_id": "appedu-b0799",
+    "storage_bucket": "appedu-b0799.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:616790915772:android:885c714b3c3f365c0eeeb9",
+        "android_client_info": {
+          "package_name": "com.example.appedu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "616790915772-2v5da75m35d2jifq2j8lor8pgub4b9t2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.appedu",
+            "certificate_hash": "e644d7c7f013835fd866b963e95556cadafd9fa8"
+          }
+        },
+        {
+          "client_id": "616790915772-efnm1v5918d3k9p0j8s3fp1cp8iln7it.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0c9G6KfUxFKGag0fa2F2MDkcIZaFsof0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "616790915772-efnm1v5918d3k9p0j8s3fp1cp8iln7it.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
