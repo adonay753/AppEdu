@@ -20,31 +20,25 @@
     <fragment
         android:id="@+id/nav_slideshow"
         android:name="com.example.appedu.ui.Acti_Tareas.SlideshowFragment"
-<<<<<<< HEAD
-        android:label="@string/menu_tareas"
-=======
+
         android:label="menu_slideshow"
->>>>>>> remotes/origin/loginFirebase
+
         tools:layout="@layout/fragment_slideshow" />
 
     <fragment
         android:id="@+id/nav_tools"
         android:name="com.example.appedu.ui.Calendario.ToolsFragment"
-<<<<<<< HEAD
-        android:label="@string/menu_calendario"
-=======
+
         android:label="menu_tools"
->>>>>>> remotes/origin/loginFirebase
+
         tools:layout="@layout/fragment_tools" />
 
     <fragment
         android:id="@+id/nav_share"
         android:name="com.example.appedu.ui.Notas.ShareFragment"
-<<<<<<< HEAD
-        android:label="@string/menu_notas"
-=======
+
         android:label="menu_share"
->>>>>>> remotes/origin/loginFirebase
+
         tools:layout="@layout/fragment_share" />
 
     <fragment
