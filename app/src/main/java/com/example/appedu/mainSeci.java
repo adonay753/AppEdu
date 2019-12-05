@@ -1,5 +1,6 @@
 package com.example.appedu;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -29,10 +30,12 @@ public class mainSeci extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
 
+    @SuppressLint("ResourceType")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_seci);
+ //       setContentView(R.menu.activity_main_alumno_drawer);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -40,8 +43,7 @@ public class mainSeci extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+
                 FirebaseAuth mAuth = FirebaseAuth.getInstance();
                 DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
                 ref.child("Usuarios").child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
@@ -49,7 +51,7 @@ public class mainSeci extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         if(dataSnapshot.exists()) {
                             String dato = dataSnapshot.child("Rol").getValue().toString();
-                            Toast.makeText(mainSeci.this, dato, Toast.LENGTH_LONG).show();
+                            Toast.makeText(mainSeci.this, dato, Toast.LENGTH_SHORT).show();
                         }
                     }
 
@@ -86,5 +88,7 @@ public class mainSeci extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+
     }
+
 }
