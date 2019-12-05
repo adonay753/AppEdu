@@ -38,5 +38,6 @@
     <string name="notas">Notas</string>
     <string name="calificaciones">Calificaciones</string>
     <string name="correo">Correo Electronico</string>
+    <string name="logout">Cerrar Sesion</string>
 
 </resources>
