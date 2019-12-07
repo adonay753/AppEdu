@@ -28,6 +28,8 @@ import android.widget.Toast;
 
 public class mainSeci extends AppCompatActivity {
 
+
+
     private AppBarConfiguration mAppBarConfiguration;
 
     @SuppressLint("ResourceType")
