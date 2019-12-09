@@ -114,7 +114,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void iniciar() {
         Intent intent = new Intent(MainActivity.this, mainSeci.class);
-        startActivity(intent);
+        
+         startActivity(intent);
         finish();
     }
 

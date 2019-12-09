@@ -5,9 +5,17 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_bar"
+            android:id="@+id/nav_bar_Prof"
             android:icon="@drawable/sharp_menu_24"
-            android:title="@string/app_name"/>
+            android:title="@string/regProf"/>
+        <item
+            android:id="@+id/nav_bar_alumn"
+            android:icon="@drawable/sharp_menu_24"
+            android:title="@string/regAlum"/>
+        <item
+            android:id="@+id/nav_bar_pad"
+            android:icon="@drawable/sharp_menu_24"
+            android:title="@string/regPad"/>
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/baseline_home_24"
@@ -19,19 +27,22 @@
         <item
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/baseline_list_24"
-            android:title="menu_slideshow" />
+            android:title="@string/menu_tareas"/>
+
         <item
             android:id="@+id/nav_tools"
             android:icon="@drawable/baseline_calendar_today_24"
-            android:title="menu_tools" />
+            android:title="@string/menu_calendario" />
+
     </group>
 
-    <item android:title="Calificaciones">
+    <item android:title="@string/calificaciones">
         <menu>
             <item
-                android:id="@+id/nav_share"
+                android:id="@+id/nav_notas"
                 android:icon="@drawable/outline_insert_drive_file_24"
-                android:title="menu_share" />
+                android:title="@string/menu_notas" />
+
             <item
                 android:id="@+id/nav_send"
                 android:icon="@drawable/baseline_add_24"
