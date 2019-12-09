@@ -92,5 +92,9 @@ public class mainSeci extends AppCompatActivity {
                 || super.onSupportNavigateUp();
 
     }
+    private void llegada(String ROL)
+    {
+        IF()
+    }
 
 }
