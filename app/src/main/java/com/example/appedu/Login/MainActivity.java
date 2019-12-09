@@ -114,10 +114,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void iniciar() {
         Intent intent = new Intent(MainActivity.this, mainSeci.class);
-        String rol=doce;
-        if(rol==docen)
-                intent.putExtra("docente", rol)
-        )x  startActivity(intent);
+        
+         startActivity(intent);
         finish();
     }
 

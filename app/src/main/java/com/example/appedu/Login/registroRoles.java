@@ -164,8 +164,12 @@ public class registroRoles extends AppCompatActivity {
                         HashMap<String, String> mapa = new HashMap<>();
                         mapa.put("Nombres", nombres.getText().toString());
                         mapa.put("Apellidas", apellidos.getText().toString());
-                        mapa.put("Cedula", ci.getText().toString());
-                        mapa.put("Materia", materia.getText().toString());
+
+                        if (rol.equals("Alumno") || rol.equals("Padre")) {
+                            mapa.put("Cedula", ci.getText().toString());
+                        } else {
+                            mapa.put("Materia", materia.getText().toString());
+                        }
                         mapa.put("Rol", rol);
 
                         rootReference.child("Usuarios").child(currentUsrID).setValue(mapa);
