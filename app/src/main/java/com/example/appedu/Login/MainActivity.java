@@ -20,8 +20,11 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText contrasenia;
     private Button ingresar;
     private TextView registrarse;
-
+    private String rol;
     private ProgressDialog progreso;
 
     @Override
@@ -48,6 +51,20 @@ public class MainActivity extends AppCompatActivity {
         contrasenia = findViewById(R.id.editText);
         ingresar = findViewById(R.id.button2);
         registrarse = findViewById(R.id.registry);
+
+        rootReference.child("Usuarios").child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot.exists()) {
+                    rol = dataSnapshot.child("Rol").getValue().toString();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
         progreso = new ProgressDialog(MainActivity.this);
 
@@ -113,9 +130,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void iniciar() {
+        if (rol.equals("Profesor")) {
+
+        } else if (rol.equals("Alumno")) {
+
+        } else if (rol.equals("Padre")) {
+
+        }
+        //para cada usas esta forma de intent para que no pueda vover atras
         Intent intent = new Intent(MainActivity.this, mainSeci.class);
-        
-         startActivity(intent);
+        startActivity(intent);
         finish();
     }
 
