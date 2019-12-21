@@ -98,6 +98,10 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()) {
+
+
+
+
                         iniciar();
                         Toast.makeText(MainActivity.this, "Inicio de Sesion Exitosa", Toast.LENGTH_SHORT).show();
                         progreso.dismiss();
@@ -112,12 +116,37 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+
     private void iniciar() {
+
+
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
+        ref.child("Usuarios").child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot.exists()) {
+                    String dato = dataSnapshot.child("Rol").getValue().toString();
+                    Toast.makeText(mainSeci.this, dato, Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
+
+        if (dato.equuals("Padre"))
         Intent intent = new Intent(MainActivity.this, mainSeci.class);
         
          startActivity(intent);
         finish();
+        if dato ()
     }
+
 
     private void registrarUsuario() {
         Intent intent = new Intent(MainActivity.this,registroRoles.class);
