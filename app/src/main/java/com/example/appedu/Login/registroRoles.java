@@ -188,6 +188,14 @@ public class registroRoles extends AppCompatActivity {
     }
 
     private void inicar() {
+        if (rol.equals("Profesor")) {
+
+        } else if (rol.equals("Alumno")) {
+
+        } else if (rol.equals("Padre")) {
+
+        }
+        //para cada usas esta forma de intent para que no pueda vover atras
         Intent intent = new Intent(registroRoles.this, mainSeci.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
