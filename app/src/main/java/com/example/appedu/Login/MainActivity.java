@@ -135,17 +135,22 @@ public class MainActivity extends AppCompatActivity {
         if (rol.equals("Profesor")) {
             Intent intent = new Intent(MainActivity.this, mainSeci.class);
             startActivity(intent);
+            finish();
 
-        } else if (rol.equals("Alumno")) {
-            Intent intent = new Intent(MainActivity.this, mainSeci.class);
-            startActivity(intent);
-        } else if (rol.equals("Padre")) {
-            Intent intent = new Intent(MainActivity.this, mainSeci.class);
-            startActivity(intent);
         }
-        //para cada usas esta forma de intent para que no pueda vover atras
+        if (rol.equals("Alumno")) {
+            Intent intent = new Intent(MainActivity.this, mainSeci.class);
+            startActivity(intent);
+            finish();
+        }
+        if (rol.equals("Padre")) {
+            Intent intent = new Intent(MainActivity.this, mainSeci.class);
+            startActivity(intent);
+            finish();
+        }
+        //para cada usas esta forma de intent para que no pueda volver atras
 
-        finish();
+
     }
 
 
