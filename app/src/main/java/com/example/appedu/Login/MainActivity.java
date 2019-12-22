@@ -52,19 +52,7 @@ public class MainActivity extends AppCompatActivity {
         ingresar = findViewById(R.id.button2);
         registrarse = findViewById(R.id.registry);
 
-        rootReference.child("Usuarios").child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if(dataSnapshot.exists()) {
-                    rol = dataSnapshot.child("Rol").getValue().toString();
-                }
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
 
         progreso = new ProgressDialog(MainActivity.this);
 
@@ -87,9 +75,21 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-
         if (mAuth.getCurrentUser() != null) {
-            iniciar();
+            rootReference.child("Usuarios").child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    if(dataSnapshot.exists()) {
+                        rol = dataSnapshot.child("Rol").getValue().toString();
+                        iniciar();
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
         }
 
     }
@@ -115,7 +115,20 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()) {
-                        iniciar();
+                        rootReference.child("Usuarios").child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                if(dataSnapshot.exists()) {
+                                    rol = dataSnapshot.child("Rol").getValue().toString();
+                                    iniciar();
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                            }
+                        });
                         Toast.makeText(MainActivity.this, "Inicio de Sesion Exitosa", Toast.LENGTH_SHORT).show();
                         progreso.dismiss();
                     } else {
@@ -133,6 +146,7 @@ public class MainActivity extends AppCompatActivity {
     private void iniciar() {
 
         if (rol.equals("Profesor")) {
+<<<<<<< HEAD
             Intent intent = new Intent(MainActivity.this, mainSeci.class);
             startActivity(intent);
             finish();
@@ -150,6 +164,15 @@ public class MainActivity extends AppCompatActivity {
         }
         //para cada usas esta forma de intent para que no pueda volver atras
 
+=======
+            Toast.makeText(MainActivity.this, rol, Toast.LENGTH_SHORT).show();
+
+        } else if (rol.equals("Alumno")) {
+            Toast.makeText(MainActivity.this, rol, Toast.LENGTH_SHORT).show();
+
+        } else if (rol.equals("Padre")) {
+            Toast.makeText(MainActivity.this, rol, Toast.LENGTH_SHORT).show();
+>>>>>>> 9779f8c12cfc025c74f1db07859a5a4c78ab9520
 
     }
 
