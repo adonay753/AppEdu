@@ -189,10 +189,12 @@ public class registroRoles extends AppCompatActivity {
 
     private void inicar() {
         if (rol.equals("Profesor")) {
-
+            Toast.makeText(registroRoles.this, rol, Toast.LENGTH_SHORT).show();
         } else if (rol.equals("Alumno")) {
+            Toast.makeText(registroRoles.this, rol, Toast.LENGTH_SHORT).show();
 
         } else if (rol.equals("Padre")) {
+            Toast.makeText(registroRoles.this, rol, Toast.LENGTH_SHORT).show();
 
         }
         //para cada usas esta forma de intent para que no pueda vover atras
