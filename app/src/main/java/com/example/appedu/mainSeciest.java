@@ -1,5 +1,6 @@
 package com.example.appedu;
 
+
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -26,7 +27,7 @@ import android.view.Menu;
 import android.widget.Toast;
 
 
-public class mainSeci extends AppCompatActivity {
+public class mainSeciest extends AppCompatActivity {
 
 
 
@@ -36,8 +37,8 @@ public class mainSeci extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_seci);
- //       setContentView(R.menu.activity_main_seciest_drawer);
+        setContentView(R.layout.activity_main_seci_alumn);
+        //       setContentView(R.menu.activity_main_seciest_drawer);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -53,7 +54,7 @@ public class mainSeci extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         if(dataSnapshot.exists()) {
                             String dato = dataSnapshot.child("Rol").getValue().toString();
-                            Toast.makeText(mainSeci.this, dato, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(mainSeciest.this, dato, Toast.LENGTH_SHORT).show();
                         }
                     }
 

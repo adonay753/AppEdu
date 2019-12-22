@@ -16,6 +16,8 @@ import android.widget.Toast;
 
 import com.example.appedu.R;
 import com.example.appedu.mainSeci;
+import com.example.appedu.mainSeciest;
+import com.example.appedu.mainSecipad;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -53,7 +55,6 @@ public class MainActivity extends AppCompatActivity {
         registrarse = findViewById(R.id.registry);
 
 
-
         progreso = new ProgressDialog(MainActivity.this);
 
         ingresar.setOnClickListener(new View.OnClickListener() {
@@ -79,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
             rootReference.child("Usuarios").child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    if(dataSnapshot.exists()) {
+                    if (dataSnapshot.exists()) {
                         rol = dataSnapshot.child("Rol").getValue().toString();
                         iniciar();
                     }
@@ -118,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
                         rootReference.child("Usuarios").child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                if(dataSnapshot.exists()) {
+                                if (dataSnapshot.exists()) {
                                     rol = dataSnapshot.child("Rol").getValue().toString();
                                     iniciar();
                                 }
@@ -146,39 +147,30 @@ public class MainActivity extends AppCompatActivity {
     private void iniciar() {
 
         if (rol.equals("Profesor")) {
-<<<<<<< HEAD
-            Intent intent = new Intent(MainActivity.this, mainSeci.class);
-            startActivity(intent);
-            finish();
 
-        }
-        if (rol.equals("Alumno")) {
-            Intent intent = new Intent(MainActivity.this, mainSeci.class);
-            startActivity(intent);
-            finish();
-        }
-        if (rol.equals("Padre")) {
-            Intent intent = new Intent(MainActivity.this, mainSeci.class);
-            startActivity(intent);
-            finish();
-        }
-        //para cada usas esta forma de intent para que no pueda volver atras
-
-=======
             Toast.makeText(MainActivity.this, rol, Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(MainActivity.this, mainSeci.class);
+            startActivity(intent);
+            finish();
 
         } else if (rol.equals("Alumno")) {
             Toast.makeText(MainActivity.this, rol, Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(MainActivity.this, mainSeciest.class);
+            startActivity(intent);
+            finish();
 
         } else if (rol.equals("Padre")) {
             Toast.makeText(MainActivity.this, rol, Toast.LENGTH_SHORT).show();
->>>>>>> 9779f8c12cfc025c74f1db07859a5a4c78ab9520
+            Intent intent = new Intent(MainActivity.this, mainSecipad.class);
+            startActivity(intent);
+            finish();
 
+        }
     }
 
-
-    private void registrarUsuario() {
-        Intent intent = new Intent(MainActivity.this,registroRoles.class);
-        startActivity(intent);
-    }
+        private void registrarUsuario () {
+            Intent intent = new Intent(MainActivity.this, registroRoles.class);
+            startActivity(intent);
+        }
 }
+

@@ -7,7 +7,7 @@
         <item
             android:id="@+id/nav_bar_Prof"
             android:icon="@drawable/sharp_menu_24"
-            android:title="@string/regProf"/>
+            android:title="@string/regPad"/>
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/baseline_home_24"
