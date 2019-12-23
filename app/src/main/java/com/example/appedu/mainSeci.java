@@ -37,37 +37,10 @@ public class mainSeci extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_seci);
- //       setContentView(R.menu.activity_main_seciest_drawer);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                FirebaseAuth mAuth = FirebaseAuth.getInstance();
-                DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
-                ref.child("Usuarios").child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        if(dataSnapshot.exists()) {
-                            String dato = dataSnapshot.child("Rol").getValue().toString();
-                            Toast.makeText(mainSeci.this, dato, Toast.LENGTH_SHORT).show();
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                    }
-                });
-            }
-        });
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow,
                 R.id.nav_tools, R.id.nav_share, R.id.nav_send)
@@ -81,9 +54,16 @@ public class mainSeci extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
+        //getMenuInflater().inflate(R.menu.main_seci, menu);
+        //getMenuInflater().inflate(R.menu.main_seci,menu);
+        //return true;
+
         getMenuInflater().inflate(R.menu.main_seci, menu);
+        //getMenuInflater().inflate(R.menu.me);
         return true;
+
     }
+
 
     @Override
     public boolean onSupportNavigateUp() {

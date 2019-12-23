@@ -144,23 +144,25 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private void iniciar() {
+    public void iniciar() {
 
         if (rol.equals("Profesor")) {
 
-            Toast.makeText(MainActivity.this, rol, Toast.LENGTH_SHORT).show();
+            //Toast.makeText(MainActivity.this, rol, Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(MainActivity.this, mainSeci.class);
             startActivity(intent);
             finish();
 
         } else if (rol.equals("Alumno")) {
-            Toast.makeText(MainActivity.this, rol, Toast.LENGTH_SHORT).show();
+
+            //Toast.makeText(MainActivity.this, rol, Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(MainActivity.this, mainSeciest.class);
             startActivity(intent);
             finish();
 
         } else if (rol.equals("Padre")) {
-            Toast.makeText(MainActivity.this, rol, Toast.LENGTH_SHORT).show();
+
+            //Toast.makeText(MainActivity.this, rol, Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(MainActivity.this, mainSecipad.class);
             startActivity(intent);
             finish();

@@ -18,6 +18,8 @@ import android.widget.Toast;
 
 import com.example.appedu.R;
 import com.example.appedu.mainSeci;
+import com.example.appedu.mainSeciest;
+import com.example.appedu.mainSecipad;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
@@ -101,14 +103,14 @@ public class registroRoles extends AppCompatActivity {
                     continuar.setVisibility(View.GONE);
                     ci.setVisibility(View.GONE);
                 }
-                if (parent.getItemAtPosition(position).toString().equals(prof)) {
+                else if (parent.getItemAtPosition(position).toString().equals(prof)) {
 
                     materia.setVisibility(view.VISIBLE);
                     continuar.setVisibility(View.VISIBLE);
                     ci.setVisibility(View.GONE);
                     rol = prof;
                 }
-                if (parent.getItemAtPosition(position).toString().equals(alumn)) {
+                else if (parent.getItemAtPosition(position).toString().equals(alumn)) {
 
                     materia.setVisibility(View.GONE);
                     continuar.setVisibility(View.VISIBLE);
@@ -116,7 +118,7 @@ public class registroRoles extends AppCompatActivity {
                     rol = alumn;
 
                 }
-                if (parent.getItemAtPosition(position).toString().equals(padr)) {
+                else if (parent.getItemAtPosition(position).toString().equals(padr)) {
 
                     Snackbar.make(view, "Ingrese el C.I. del Alumno", Snackbar.LENGTH_LONG).setAction("Action", null).show();
                     materia.setVisibility(View.GONE);
@@ -173,7 +175,7 @@ public class registroRoles extends AppCompatActivity {
                         mapa.put("Rol", rol);
 
                         rootReference.child("Usuarios").child(currentUsrID).setValue(mapa);
-                        inicar();
+                          inicar();
                         Toast.makeText(registroRoles.this, "Cuenta Creada Exitosamente", Toast.LENGTH_SHORT).show();
                         progreso.dismiss();
 
@@ -187,21 +189,36 @@ public class registroRoles extends AppCompatActivity {
         }
     }
 
-    private void inicar() {
-        if (rol.equals("Profesor")) {
-            Toast.makeText(registroRoles.this, rol, Toast.LENGTH_SHORT).show();
-        } else if (rol.equals("Alumno")) {
-            Toast.makeText(registroRoles.this, rol, Toast.LENGTH_SHORT).show();
+    public void inicar() {
 
-        } else if (rol.equals("Padre")) {
-            Toast.makeText(registroRoles.this, rol, Toast.LENGTH_SHORT).show();
+        if (rol.equals("Profesor")) {
+
+            Intent intent = new Intent(registroRoles.this, mainSeci.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+            finish();
 
         }
+        if (rol.equals("Alumno")) {
+
+            Intent intent = new Intent(registroRoles.this, mainSeciest.class);
+            //intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+            finish();
+
+        }
+        if (rol.equals("Padre")) {
+            Toast.makeText(registroRoles.this, rol, Toast.LENGTH_SHORT).show();
+
+            Intent intent = new Intent(registroRoles.this, mainSecipad.class);
+            //intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+            finish();
+
+        }
+
         //para cada usas esta forma de intent para que no pueda vover atras
-        Intent intent = new Intent(registroRoles.this, mainSeci.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(intent);
-        finish();
+
     }
 }
 
