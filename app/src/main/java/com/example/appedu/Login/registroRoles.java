@@ -195,6 +195,7 @@ public class registroRoles extends AppCompatActivity {
 
             Intent intent = new Intent(registroRoles.this, mainSeci.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            intent.putExtra("rol", rol);
             startActivity(intent);
             finish();
 
@@ -202,16 +203,17 @@ public class registroRoles extends AppCompatActivity {
         if (rol.equals("Alumno")) {
 
             Intent intent = new Intent(registroRoles.this, mainSeciest.class);
-            //intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            intent.putExtra("rol", rol);
             startActivity(intent);
             finish();
 
         }
         if (rol.equals("Padre")) {
-            Toast.makeText(registroRoles.this, rol, Toast.LENGTH_SHORT).show();
 
             Intent intent = new Intent(registroRoles.this, mainSecipad.class);
-            //intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            intent.putExtra("rol", rol);
             startActivity(intent);
             finish();
 

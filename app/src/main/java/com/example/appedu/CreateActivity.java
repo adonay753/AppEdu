@@ -71,6 +71,7 @@ public class CreateActivity extends AppCompatActivity {
 
     private void changeMainSeci() {
         Intent intent = new Intent(CreateActivity.this, mainSeci.class);
+        intent.putExtra("rol", "Profesor");
         startActivity(intent);
         finish();
     }
