@@ -40,12 +40,23 @@ public class JoinActivity extends AppCompatActivity {
                 rootRef.child("Token").addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        for (DataSnapshot token: dataSnapshot.getChildren()) {
+                        for (final DataSnapshot token: dataSnapshot.getChildren()) {
                             if (token.getKey().equals(key.getText().toString())) {
-                                System.out.println(token.getKey());
+
                                 rootRef.child("CursosAlumno").child(mAuth.getUid()).child(token.getKey()).setValue(token.getValue());
                                 sendHome();
-                                
+                                rootRef.child("Usuarios").child(mAuth.getUid()).addValueEventListener(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                        String dato = dataSnapshot.child("Cedula").getValue().toString();
+                                        rootRef.child("Hijos").child(dato).child(token.getKey()).setValue(token.getValue());
+                                    }
+
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                    }
+                                });
                             }
                         }
                     }

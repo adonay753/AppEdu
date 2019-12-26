@@ -29,7 +29,8 @@ import android.widget.Toast;
 
 public class mainSecipad extends AppCompatActivity {
 
-
+    private DatabaseReference rootRef;
+    private FirebaseAuth mAuth;
 
     private AppBarConfiguration mAppBarConfiguration;
 
@@ -41,6 +42,8 @@ public class mainSecipad extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        rootRef = FirebaseDatabase.getInstance().getReference();
+        mAuth = FirebaseAuth.getInstance();
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
@@ -71,5 +74,32 @@ public class mainSecipad extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        rootRef.child("Usuarios").child(mAuth.getUid()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                String ci = dataSnapshot.child("Cedula").getValue().toString();
+                rootRef.child("Hijos").child(ci).addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        for (DataSnapshot token: dataSnapshot.getChildren()) {
+                            rootRef.child("CursosPadre").child(mAuth.getUid()).child(token.getKey()).setValue(token.getValue());
+                        }
+                    }
 
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
 }
