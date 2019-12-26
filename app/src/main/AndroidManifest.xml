@@ -14,7 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".CreateActivity"></activity>
+        <activity android:name=".JoinActivity"></activity>
+        <activity android:name=".CreateActivity" />
         <activity android:name=".Login.registroRoles" />
         <activity
             android:name=".mainSeci"

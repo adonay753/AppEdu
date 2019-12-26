@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.appedu.Card;
 import com.example.appedu.CreateActivity;
+import com.example.appedu.JoinActivity;
 import com.example.appedu.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -25,7 +26,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class HomeFragment extends Fragment {
     private RecyclerView list;
-    private Button btn;
+    private Button btn, join;
     private DatabaseReference base;
     private FirebaseAuth usuario;
     private String rol;
@@ -48,6 +49,14 @@ public class HomeFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_home, container, false);
         list = root.findViewById(R.id.main_recycler);
         btn = root.findViewById(R.id.btn_enter);
+        join = root.findViewById(R.id.btn_unirse);
+        join.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity().getApplication(), JoinActivity.class);
+                startActivity(intent);
+            }
+        });
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

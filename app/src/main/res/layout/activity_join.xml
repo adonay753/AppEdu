@@ -1,27 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:gravity="center"
+    tools:context=".JoinActivity">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/main_recycler"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    </androidx.recyclerview.widget.RecyclerView>
-    <Button
+    <EditText
+        android:id="@+id/txt_key_join"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btn_enter"
-        android:text="enter">
-
-    </Button>
+        android:textAlignment="center"
+        android:hint="Ingrese la clave"/>
     <Button
-        android:id="@+id/btn_unirse"
+        android:id="@+id/btn_join"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/btn_enter"
+        android:layout_below="@id/txt_key_join"
         android:text="unirse"/>
 
 </RelativeLayout>
