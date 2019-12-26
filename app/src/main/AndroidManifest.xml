@@ -14,28 +14,21 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity
-            android:name=".Login.registroRoles"/>
+        <activity android:name=".ListActivity"></activity>
+        <activity android:name=".Login.registroRoles" />
         <activity
             android:name=".mainSeci"
             android:label="@string/title_activity_main_seci"
-            android:theme="@style/AppTheme.NoActionBar.NoActionBar">
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar.NoActionBar"></activity>
         <activity
             android:name=".mainSeciest"
             android:label="mainSeciest"
-            android:theme="@style/AppTheme.NoActionBar.NoActionBar">
-        </activity>
-
-
+            android:theme="@style/AppTheme.NoActionBar.NoActionBar"></activity>
         <activity
             android:name=".mainSecipad"
             android:label="mainSecipad"
-            android:theme="@style/AppTheme.NoActionBar.NoActionBar">
-        </activity>
-
-        <activity
-            android:name=".Login.MainActivity">
+            android:theme="@style/AppTheme.NoActionBar.NoActionBar"></activity>
+        <activity android:name=".Login.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
