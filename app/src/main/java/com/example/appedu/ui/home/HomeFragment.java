@@ -17,12 +17,14 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.appedu.Card;
+import com.example.appedu.CreateActivity;
 import com.example.appedu.ListActivity;
 import com.example.appedu.Login.MainActivity;
 import com.example.appedu.R;
 import com.example.appedu.mainSecipad;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -30,11 +32,13 @@ public class HomeFragment extends Fragment {
     private RecyclerView list;
     private Button btn;
     private DatabaseReference base;
+    private FirebaseAuth usuario;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        base = FirebaseDatabase.getInstance().getReference().child("Prueba");
+        usuario = FirebaseAuth.getInstance();
+        base = FirebaseDatabase.getInstance().getReference().child("CursosProfesor").child(usuario.getUid());
         base.keepSynced(true);
         View root = inflater.inflate(R.layout.fragment_home, container, false);
         list = root.findViewById(R.id.main_recycler);
@@ -42,7 +46,7 @@ public class HomeFragment extends Fragment {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity().getApplication(), ListActivity.class);
+                Intent intent = new Intent(getActivity().getApplication(), CreateActivity.class);
                 startActivity(intent);
             }
         });

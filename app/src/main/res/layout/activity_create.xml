@@ -8,15 +8,17 @@
     tools:context=".CreateActivity">
 
 
-    <TextView
+    <EditText
         android:id="@+id/txt_curso"
+        android:background="@drawable/borde"
         android:textAlignment="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Curso" />
 
-    <TextView
+    <EditText
         android:id="@+id/txt_materia"
+        android:background="@drawable/borde"
         android:textAlignment="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -24,8 +26,9 @@
         android:layout_below="@+id/txt_curso"
         android:hint="Materia" />
 
-    <TextView
+    <EditText
         android:id="@+id/txt_clave"
+        android:background="@drawable/borde"
         android:textAlignment="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
