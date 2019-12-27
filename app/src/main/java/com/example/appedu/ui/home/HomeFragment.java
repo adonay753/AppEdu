@@ -19,6 +19,7 @@ import com.example.appedu.CreateActivity;
 import com.example.appedu.JoinActivity;
 import com.example.appedu.Login.MainActivity;
 import com.example.appedu.R;
+import com.example.appedu.SelectActivity;
 import com.example.appedu.TaskActivity;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -96,10 +97,22 @@ public class HomeFragment extends Fragment {
                 cardViewHolder.setCurso(card.getCurso());
                 cardViewHolder.setMateria(card.getMateria());
                 cardViewHolder.setProfesor(card.getProfesor());
+
+                final int position = i;
                 cardViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Toast.makeText(getActivity().getApplication(), "imprimir", Toast.LENGTH_LONG).show();
+                        if (rol.equals("Profesor")){
+                            Intent intent = new Intent(getActivity(), SelectActivity.class);
+                            intent.putExtra("token", getRef(position).getKey());
+                            startActivity(intent);
+                        } else if (rol.equals("Alumno")) {
+                            Intent intent = new Intent(getActivity(), TaskActivity.class);
+                            intent.putExtra("token", getRef(position).getKey());
+                            startActivity(intent);
+                        } else if (rol.equals("Padre")) {
+
+                        }
                     }
                 });
             }

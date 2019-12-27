@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SelectActivity">
+    <include
+        android:id="@+id/toolbar_select"
+        layout="@layout/toolbar_all"/>
+    <Button
+        android:id="@+id/btn_select_alumno"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_below="@id/toolbar_select"
+        android:textSize="50dp"
+        android:text="Alumno"/>
+    <Button
+        android:id="@+id/btn_select_padre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_below="@id/btn_select_alumno"
+        android:textSize="50dp"
+        android:text="Padre"/>
+</RelativeLayout>

@@ -4,5 +4,8 @@
     <item
         android:id="@+id/create_task"
         android:title="Crear Tarea"/>
+    <item
+        android:id="@+id/deliver_task"
+        android:title="Entregar Tarea"/>
 
 </menu>

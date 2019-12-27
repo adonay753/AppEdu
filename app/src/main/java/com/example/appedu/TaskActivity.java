@@ -6,6 +6,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -16,6 +17,7 @@ import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -26,10 +28,12 @@ public class TaskActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private ArrayList<CardTask> list;
     private Toolbar toolbar;
+    private String token;
 
     private FirebaseRecyclerOptions<CardTask> options;
     private FirebaseRecyclerAdapter<CardTask, TaskViewHolder> adapter;
     private DatabaseReference rootRef;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onStart() {
@@ -42,6 +46,7 @@ public class TaskActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task);
 
+        token = getIntent().getStringExtra("token");
         recyclerView = findViewById(R.id.recycler_view_task);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -51,6 +56,7 @@ public class TaskActivity extends AppCompatActivity {
         toolbar.setTitle("Tareas");
         setSupportActionBar(toolbar);
 
+        mAuth = FirebaseAuth.getInstance();
         rootRef = FirebaseDatabase.getInstance().getReference().child("uploads");
         rootRef.keepSynced(true);
 
@@ -87,6 +93,7 @@ public class TaskActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.munu_tareas, menu);
+
         return true;
     }
 
@@ -94,7 +101,13 @@ public class TaskActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.create_task) {
-            Toast.makeText(getApplicationContext(), "Imprime", Toast.LENGTH_LONG).show();
+            //Intent intent = new Intent(TaskActivity.this, SubirEsActivity.class);
+            //intent.putExtra("token", token);
+            //startActivity(intent);
+        } else if (id == R.id.deliver_task) {
+            //Intent intent = new Intent(TaskActivity.this, SubirTarea.class);
+            //intent.putExtra("token", token);
+            //startActivity(intent);
         }
         return true;
     }
