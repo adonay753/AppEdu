@@ -19,6 +19,7 @@ import com.example.appedu.CreateActivity;
 import com.example.appedu.JoinActivity;
 import com.example.appedu.Login.MainActivity;
 import com.example.appedu.R;
+import com.example.appedu.TaskActivity;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
@@ -64,7 +65,7 @@ public class HomeFragment extends Fragment {
         join.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity().getApplication(), JoinActivity.class);
+                Intent intent = new Intent(getActivity().getApplication(), TaskActivity.class);
                 startActivity(intent);
             }
         });
