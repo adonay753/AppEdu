@@ -19,6 +19,7 @@ import com.example.appedu.CreateActivity;
 import com.example.appedu.JoinActivity;
 import com.example.appedu.Login.MainActivity;
 import com.example.appedu.R;
+import com.example.appedu.Release.MessageContentActivity;
 import com.example.appedu.SelectActivity;
 import com.example.appedu.TaskActivity;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -133,7 +134,28 @@ public class HomeFragment extends Fragment {
                                 }
                             });
                         } else if (rol.equals("Padre")) {
+                            final String token = getRef(position).getKey();
+                            DatabaseReference otro = FirebaseDatabase.getInstance().getReference();
+                            otro.child("CursosProfesor").addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                    for (DataSnapshot idProfesor: dataSnapshot.getChildren()) {
+                                        for (DataSnapshot idToken: idProfesor.getChildren()) {
+                                            if (idToken.getKey().equals(token)) {
+                                                Intent intent = new Intent(getActivity(), MessageContentActivity.class);
+                                                intent.putExtra("token", token);
+                                                intent.putExtra("usuario", idProfesor.getKey());
+                                                startActivity(intent);
+                                            }
+                                        }
+                                    }
+                                }
 
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                }
+                            });
                         }
                     }
                 });
