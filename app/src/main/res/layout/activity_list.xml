@@ -5,11 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ListActivity">
-
+    <include
+        android:id="@+id/toolbal_list"
+        layout="@layout/toolbar_all" />
     <ListView
         android:id="@+id/list_class"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbal_list"/>
 
 
 </RelativeLayout>

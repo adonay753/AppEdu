@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.example.appedu.R;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -23,6 +24,7 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class UploadTaskActivity extends AppCompatActivity {
@@ -32,6 +34,8 @@ public class UploadTaskActivity extends AppCompatActivity {
     private Button btn_upload;
     StorageReference storageReference;
     DatabaseReference databaseReference;
+    private FirebaseAuth mAuth;
+    private String usuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +46,9 @@ public class UploadTaskActivity extends AppCompatActivity {
         editDescripcion=findViewById(R.id.txtTarea);
         btn_upload=(Button)findViewById(R.id.btn_subirArchivoEstudiante);
 
+        mAuth = FirebaseAuth.getInstance();
         storageReference= FirebaseStorage.getInstance().getReference();
+        usuario = getIntent().getStringExtra("usuario");
         String dato_recibido = getIntent().getStringExtra("token");
         databaseReference= FirebaseDatabase.getInstance().getReference("Tarea").child(dato_recibido);///referencia de la base de datos cambiarlo por otro
 
@@ -72,9 +78,6 @@ public class UploadTaskActivity extends AppCompatActivity {
             uploadPDFFile(data.getData());
 
         }
-
-
-
     }
 
 
@@ -94,7 +97,8 @@ public class UploadTaskActivity extends AppCompatActivity {
                         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss-ssssss");
                         String currentDateandTime = simpleDateFormat.format(new Date());
                         UploadPDF uploadPDF=new UploadPDF(editPdfname.getText().toString(),editDescripcion.getText().toString(),url.toString());
-                        databaseReference.child(databaseReference.child(currentDateandTime).getKey()).setValue(uploadPDF);
+                        databaseReference.child(mAuth.getUid()).child(usuario).child(databaseReference.child(currentDateandTime).getKey()).setValue(uploadPDF);
+                        databaseReference.child(usuario).child(mAuth.getUid()).child(databaseReference.child(currentDateandTime).getKey()).setValue(uploadPDF);
 
                         Toast.makeText(UploadTaskActivity.this,"FileUploaded",Toast.LENGTH_SHORT).show();
                         progressDialog.dismiss();

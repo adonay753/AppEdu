@@ -2,15 +2,17 @@ package com.example.appedu;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -23,8 +25,10 @@ import java.util.List;
 
 public class ListActivity extends AppCompatActivity {
 
+    private Toolbar toolbar;
     private ListView listView;
     private List<String> listFiles;
+    private ArrayList<String> usuario;
 
     private DatabaseReference rootRef;
     private String token;
@@ -34,11 +38,17 @@ public class ListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
 
+        toolbar = findViewById(R.id.toolbal_list);
+        toolbar.setTitle("Listado");
+        setSupportActionBar(toolbar);
+
         token = getIntent().getStringExtra("token");
         rootRef = FirebaseDatabase.getInstance().getReference();
 
         listView = findViewById(R.id.list_class);
         listFiles = new ArrayList<>();
+        usuario = new ArrayList<>();
+
         viewAllFile();
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -46,6 +56,7 @@ public class ListActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(ListActivity.this, TaskActivity.class);
                 intent.putExtra("token", token);
+                intent.putExtra("usuario", usuario.get(position));
                 startActivity(intent);
             }
         });
@@ -69,7 +80,7 @@ public class ListActivity extends AppCompatActivity {
                                             String nombre = dataSnapshot.child("Nombres").getValue().toString();
                                             nombre += " " + dataSnapshot.child("Apellidas").getValue().toString();
                                             listFiles.add(nombre);
-
+                                            usuario.add(idAlumno.getKey());
                                             String[] uploads = new String[listFiles.size()];
 
                                             for (int i=0; i<uploads.length; i++) {
@@ -102,4 +113,5 @@ public class ListActivity extends AppCompatActivity {
             }
         });
     }
+
 }

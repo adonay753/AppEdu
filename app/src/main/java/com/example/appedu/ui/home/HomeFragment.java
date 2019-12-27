@@ -24,8 +24,11 @@ import com.example.appedu.TaskActivity;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class HomeFragment extends Fragment {
     private RecyclerView list;
@@ -107,9 +110,28 @@ public class HomeFragment extends Fragment {
                             intent.putExtra("token", getRef(position).getKey());
                             startActivity(intent);
                         } else if (rol.equals("Alumno")) {
-                            Intent intent = new Intent(getActivity(), TaskActivity.class);
-                            intent.putExtra("token", getRef(position).getKey());
-                            startActivity(intent);
+                            final String token = getRef(position).getKey();
+                            DatabaseReference otro = FirebaseDatabase.getInstance().getReference();
+                            otro.child("CursosProfesor").addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                    for (DataSnapshot idProfesor: dataSnapshot.getChildren()) {
+                                        for (DataSnapshot idToken: idProfesor.getChildren()) {
+                                            if (idToken.getKey().equals(token)) {
+                                                Intent intent = new Intent(getActivity(), TaskActivity.class);
+                                                intent.putExtra("token", token);
+                                                intent.putExtra("usuario", idProfesor.getKey());
+                                                startActivity(intent);
+                                            }
+                                        }
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                }
+                            });
                         } else if (rol.equals("Padre")) {
 
                         }
@@ -128,6 +150,12 @@ public class HomeFragment extends Fragment {
         };
         list.setAdapter(firebaseRecyclerAdapter);
         firebaseRecyclerAdapter.startListening();
+
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
     }
 
     private static class CardViewHolder extends RecyclerView.ViewHolder {

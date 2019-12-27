@@ -39,7 +39,7 @@ public class TaskActivity extends AppCompatActivity {
     private FirebaseRecyclerAdapter<CardTask, TaskViewHolder> adapter;
     private DatabaseReference rootRef;
     private FirebaseAuth mAuth;
-
+    private String usuario;
     @Override
     protected void onStart() {
         super.onStart();
@@ -51,6 +51,7 @@ public class TaskActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task);
 
+        usuario = getIntent().getStringExtra("usuario");
         token = getIntent().getStringExtra("token");
         recyclerView = findViewById(R.id.recycler_view_task);
         recyclerView.setHasFixedSize(true);
@@ -62,7 +63,7 @@ public class TaskActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         mAuth = FirebaseAuth.getInstance();
-        rootRef = FirebaseDatabase.getInstance().getReference().child("Tarea").child(token);
+        rootRef = FirebaseDatabase.getInstance().getReference().child("Tarea").child(token).child(mAuth.getUid()).child(usuario);
         rootRef.keepSynced(true);
 
         options = new FirebaseRecyclerOptions.Builder<CardTask>().setQuery(rootRef, CardTask.class).build();
@@ -119,10 +120,13 @@ public class TaskActivity extends AppCompatActivity {
         if (id == R.id.create_task) {
             Intent intent = new Intent(TaskActivity.this, UploadTaskActivity.class);
             intent.putExtra("token", token);
+            intent.putExtra("usuario", usuario);
             startActivity(intent);
-        } else if (id == R.id.deliver_task) {
+        }
+        if (id == R.id.deliver_task) {
             Intent intent = new Intent(TaskActivity.this, UploadTaskActivity.class);
             intent.putExtra("token", token);
+            intent.putExtra("usuario", usuario);
             startActivity(intent);
         }
         return true;
