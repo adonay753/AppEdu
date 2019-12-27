@@ -12,6 +12,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.appedu.Login.MainActivity;
+import com.example.appedu.SubirArchivo.SubirActividadActivity;
+import com.example.appedu.SubirArchivo.SubirArchivoEstudianteActivity;
+import com.example.appedu.SubirArchivo.SubirEsActivity;
+import com.example.appedu.SubirArchivo.SubirTareaActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -26,9 +30,10 @@ public class CreateActivity extends AppCompatActivity {
     private EditText curso, materia, clave;
     private Button crear;
     private String token;
-
+    private Button subirArchivo;//---------------------------------------
     private DatabaseReference cursosRef;
     private FirebaseAuth usuario;
+    private  Button publicar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,11 +42,20 @@ public class CreateActivity extends AppCompatActivity {
         materia = findViewById(R.id.txt_materia);
         clave = findViewById(R.id.txt_clave);
         crear = findViewById(R.id.btn_crear);
+        subirArchivo=findViewById(R.id.btn_SubirArchivo);//--------------------------------
         token = String.valueOf(UUID.randomUUID());
         clave.setText(token);
-
+        publicar=findViewById(R.id.btn_PublicarActividad);//----------------------
         cursosRef = FirebaseDatabase.getInstance().getReference();
         usuario = FirebaseAuth.getInstance();
+
+        subirArchivo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent (v.getContext(), SubirArchivoEstudianteActivity.class);
+                startActivityForResult(intent, 0);
+            }
+        });
         crear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

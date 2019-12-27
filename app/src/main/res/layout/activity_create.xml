@@ -44,4 +44,21 @@
         android:layout_below="@+id/txt_clave"
         android:text="crear" />
 
+    <Button
+        android:id="@+id/btn_SubirArchivo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_crear"
+        android:layout_marginTop="131dp"
+        android:text="subir archivo " />
+
+    <Button
+        android:id="@+id/btn_SubirActividad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_crear"
+        android:layout_marginTop="68dp"
+        android:text="subir actividad " />
+
+
 </RelativeLayout>

@@ -14,7 +14,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".JoinActivity"></activity>
+        <activity android:name=".SubirArchivo.SubirArchivoEstudianteActivity"></activity>
+        <activity android:name=".SubirArchivo.SubirTareaActivity" />
+        <activity android:name=".SubirArchivo.SubirActividadActivity" />
+        <activity android:name=".SubirArchivo.SubirEsActivity" />
+        <activity android:name=".JoinActivity" />
         <activity android:name=".CreateActivity" />
         <activity android:name=".Login.registroRoles" />
         <activity

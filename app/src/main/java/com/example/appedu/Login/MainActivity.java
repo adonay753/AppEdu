@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.appedu.R;
+import com.example.appedu.SubirArchivo.SubirEsActivity;
 import com.example.appedu.mainSeci;
 import com.example.appedu.mainSeciest;
 import com.example.appedu.mainSecipad;
@@ -68,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 registrarUsuario();
+
             }
         });
 
