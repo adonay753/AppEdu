@@ -121,9 +121,9 @@ public class TaskActivity extends AppCompatActivity {
             intent.putExtra("token", token);
             startActivity(intent);
         } else if (id == R.id.deliver_task) {
-            //Intent intent = new Intent(TaskActivity.this, SubirTarea.class);
-            //intent.putExtra("token", token);
-            //startActivity(intent);
+            Intent intent = new Intent(TaskActivity.this, UploadTaskActivity.class);
+            intent.putExtra("token", token);
+            startActivity(intent);
         }
         return true;
     }
