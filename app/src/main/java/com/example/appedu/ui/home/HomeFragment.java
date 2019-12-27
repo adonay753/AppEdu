@@ -66,7 +66,7 @@ public class HomeFragment extends Fragment {
         join.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity().getApplication(), TaskActivity.class);
+                Intent intent = new Intent(getActivity().getApplication(), JoinActivity.class);
                 startActivity(intent);
             }
         });

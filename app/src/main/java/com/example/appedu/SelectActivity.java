@@ -8,6 +8,7 @@ import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
 
 public class SelectActivity extends AppCompatActivity {
 
@@ -32,7 +33,7 @@ public class SelectActivity extends AppCompatActivity {
         alumno.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(SelectActivity.this, TaskActivity.class);
+                Intent intent = new Intent(SelectActivity.this, ListActivity.class);
                 intent.putExtra("token", token);
                 startActivity(intent);
             }
