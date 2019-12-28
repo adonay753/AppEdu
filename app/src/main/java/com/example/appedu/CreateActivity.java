@@ -38,6 +38,7 @@ public class CreateActivity extends AppCompatActivity {
         clave = findViewById(R.id.txt_clave);
         crear = findViewById(R.id.btn_crear);
         token = String.valueOf(UUID.randomUUID());
+        token = token.substring(token.length()-12, token.length()-5);
         clave.setText(token);
 
         cursosRef = FirebaseDatabase.getInstance().getReference();
@@ -71,6 +72,7 @@ public class CreateActivity extends AppCompatActivity {
 
     private void changeMainSeci() {
         Intent intent = new Intent(CreateActivity.this, mainSeci.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         intent.putExtra("rol", "Profesor");
         startActivity(intent);
         finish();

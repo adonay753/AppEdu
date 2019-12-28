@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -15,11 +16,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.example.appedu.Task.UploadTaskActivity;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -29,12 +34,13 @@ public class TaskActivity extends AppCompatActivity {
     private ArrayList<CardTask> list;
     private Toolbar toolbar;
     private String token;
+    private String rol;
 
     private FirebaseRecyclerOptions<CardTask> options;
     private FirebaseRecyclerAdapter<CardTask, TaskViewHolder> adapter;
     private DatabaseReference rootRef;
     private FirebaseAuth mAuth;
-
+    private String usuario;
     @Override
     protected void onStart() {
         super.onStart();
@@ -46,7 +52,9 @@ public class TaskActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task);
 
+        usuario = getIntent().getStringExtra("usuario");
         token = getIntent().getStringExtra("token");
+        rol = getIntent().getStringExtra("rol");
         recyclerView = findViewById(R.id.recycler_view_task);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -57,7 +65,7 @@ public class TaskActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         mAuth = FirebaseAuth.getInstance();
-        rootRef = FirebaseDatabase.getInstance().getReference().child("uploads");
+        rootRef = FirebaseDatabase.getInstance().getReference().child("Tarea").child(token).child(mAuth.getUid()).child(usuario);
         rootRef.keepSynced(true);
 
         options = new FirebaseRecyclerOptions.Builder<CardTask>().setQuery(rootRef, CardTask.class).build();
@@ -72,8 +80,19 @@ public class TaskActivity extends AppCompatActivity {
                 taskViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        getRef(position).addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                Intent intent = new Intent();
+                                intent.setData(Uri.parse(dataSnapshot.child("url").getValue().toString()));
+                                startActivity(intent);
+                            }
 
-                        Toast.makeText(TaskActivity.this, getRef(position).getKey(), Toast.LENGTH_LONG).show();
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                            }
+                        });
                     }
                 });
 
@@ -93,7 +112,12 @@ public class TaskActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.munu_tareas, menu);
-
+        MenuItem crear = menu.findItem(R.id.create_task);
+        MenuItem entregar = menu.findItem(R.id.deliver_task);
+        if (rol.equals("Profesor"))
+            entregar.setVisible(false);
+        else
+            crear.setVisible(false);
         return true;
     }
 
@@ -101,13 +125,16 @@ public class TaskActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.create_task) {
-            //Intent intent = new Intent(TaskActivity.this, SubirEsActivity.class);
-            //intent.putExtra("token", token);
-            //startActivity(intent);
-        } else if (id == R.id.deliver_task) {
-            //Intent intent = new Intent(TaskActivity.this, SubirTarea.class);
-            //intent.putExtra("token", token);
-            //startActivity(intent);
+            Intent intent = new Intent(TaskActivity.this, UploadTaskActivity.class);
+            intent.putExtra("token", token);
+            intent.putExtra("usuario", usuario);
+            startActivity(intent);
+        }
+        if (id == R.id.deliver_task) {
+            Intent intent = new Intent(TaskActivity.this, UploadTaskActivity.class);
+            intent.putExtra("token", token);
+            intent.putExtra("usuario", usuario);
+            startActivity(intent);
         }
         return true;
     }

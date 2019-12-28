@@ -14,7 +14,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".SelectActivity"></activity>
+        <activity android:name=".ListFatherActivity"></activity>
+        <activity android:name=".Release.MessageContentActivity" />
+        <activity android:name=".Release.MessageActivity" />
+        <activity android:name=".Task.UploadTaskActivity" />
+        <activity android:name=".ListActivity" />
+        <activity android:name=".SelectActivity" />
         <activity android:name=".TaskActivity" />
         <activity android:name=".JoinActivity" />
         <activity android:name=".CreateActivity" />

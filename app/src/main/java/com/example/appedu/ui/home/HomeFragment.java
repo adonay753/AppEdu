@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,13 +20,17 @@ import com.example.appedu.CreateActivity;
 import com.example.appedu.JoinActivity;
 import com.example.appedu.Login.MainActivity;
 import com.example.appedu.R;
+import com.example.appedu.Release.MessageContentActivity;
 import com.example.appedu.SelectActivity;
 import com.example.appedu.TaskActivity;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class HomeFragment extends Fragment {
     private RecyclerView list;
@@ -54,11 +59,27 @@ public class HomeFragment extends Fragment {
         btn = root.findViewById(R.id.btn_enter);
         join = root.findViewById(R.id.btn_unirse);
         exit = root.findViewById(R.id.btn_exit);
+
+        if (rol.equals("Profesor")) {
+            join.setVisibility(View.INVISIBLE);
+        } else if (rol.equals("Alumno")) {
+            btn.setVisibility(View.INVISIBLE);
+        } else if (rol.equals("Padre")) {
+            join.setVisibility(View.INVISIBLE);
+            btn.setVisibility(View.INVISIBLE);
+            RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(
+                    RelativeLayout.LayoutParams.MATCH_PARENT,
+                    RelativeLayout.LayoutParams.WRAP_CONTENT
+            );
+            params.setMargins(150, 0, 150, 0);
+            exit.setLayoutParams(params);
+        }
         exit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 usuario.signOut();
                 Intent intent = new Intent(getActivity(), MainActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
                 getActivity().finish();
             }
@@ -66,7 +87,7 @@ public class HomeFragment extends Fragment {
         join.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity().getApplication(), TaskActivity.class);
+                Intent intent = new Intent(getActivity().getApplication(), JoinActivity.class);
                 startActivity(intent);
             }
         });
@@ -105,13 +126,55 @@ public class HomeFragment extends Fragment {
                         if (rol.equals("Profesor")){
                             Intent intent = new Intent(getActivity(), SelectActivity.class);
                             intent.putExtra("token", getRef(position).getKey());
+                            intent.putExtra("rol", rol);
                             startActivity(intent);
                         } else if (rol.equals("Alumno")) {
-                            Intent intent = new Intent(getActivity(), TaskActivity.class);
-                            intent.putExtra("token", getRef(position).getKey());
-                            startActivity(intent);
-                        } else if (rol.equals("Padre")) {
+                            final String token = getRef(position).getKey();
+                            DatabaseReference otro = FirebaseDatabase.getInstance().getReference();
+                            otro.child("CursosProfesor").addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                    for (DataSnapshot idProfesor: dataSnapshot.getChildren()) {
+                                        for (DataSnapshot idToken: idProfesor.getChildren()) {
+                                            if (idToken.getKey().equals(token)) {
+                                                Intent intent = new Intent(getActivity(), TaskActivity.class);
+                                                intent.putExtra("token", token);
+                                                intent.putExtra("usuario", idProfesor.getKey());
+                                                intent.putExtra("rol", rol);
+                                                startActivity(intent);
+                                            }
+                                        }
+                                    }
+                                }
 
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                }
+                            });
+                        } else if (rol.equals("Padre")) {
+                            final String token = getRef(position).getKey();
+                            DatabaseReference otro = FirebaseDatabase.getInstance().getReference();
+                            otro.child("CursosProfesor").addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                    for (DataSnapshot idProfesor: dataSnapshot.getChildren()) {
+                                        for (DataSnapshot idToken: idProfesor.getChildren()) {
+                                            if (idToken.getKey().equals(token)) {
+                                                Intent intent = new Intent(getActivity(), MessageContentActivity.class);
+                                                intent.putExtra("token", token);
+                                                intent.putExtra("usuario", idProfesor.getKey());
+                                                startActivity(intent);
+                                            }
+                                        }
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                }
+                            });
                         }
                     }
                 });
@@ -128,6 +191,12 @@ public class HomeFragment extends Fragment {
         };
         list.setAdapter(firebaseRecyclerAdapter);
         firebaseRecyclerAdapter.startListening();
+
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
     }
 
     private static class CardViewHolder extends RecyclerView.ViewHolder {
