@@ -32,6 +32,7 @@ public class ListActivity extends AppCompatActivity {
 
     private DatabaseReference rootRef;
     private String token;
+    private String rol;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +44,7 @@ public class ListActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         token = getIntent().getStringExtra("token");
+        rol = getIntent().getStringExtra("rol");
         rootRef = FirebaseDatabase.getInstance().getReference();
 
         listView = findViewById(R.id.list_class);
@@ -57,6 +59,7 @@ public class ListActivity extends AppCompatActivity {
                 Intent intent = new Intent(ListActivity.this, TaskActivity.class);
                 intent.putExtra("token", token);
                 intent.putExtra("usuario", usuario.get(position));
+                intent.putExtra("rol", rol);
                 startActivity(intent);
             }
         });

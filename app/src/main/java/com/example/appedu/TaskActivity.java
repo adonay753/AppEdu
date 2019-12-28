@@ -34,6 +34,7 @@ public class TaskActivity extends AppCompatActivity {
     private ArrayList<CardTask> list;
     private Toolbar toolbar;
     private String token;
+    private String rol;
 
     private FirebaseRecyclerOptions<CardTask> options;
     private FirebaseRecyclerAdapter<CardTask, TaskViewHolder> adapter;
@@ -53,6 +54,7 @@ public class TaskActivity extends AppCompatActivity {
 
         usuario = getIntent().getStringExtra("usuario");
         token = getIntent().getStringExtra("token");
+        rol = getIntent().getStringExtra("rol");
         recyclerView = findViewById(R.id.recycler_view_task);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -110,7 +112,12 @@ public class TaskActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.munu_tareas, menu);
-
+        MenuItem crear = menu.findItem(R.id.create_task);
+        MenuItem entregar = menu.findItem(R.id.deliver_task);
+        if (rol.equals("Profesor"))
+            entregar.setVisible(false);
+        else
+            crear.setVisible(false);
         return true;
     }
 

@@ -5,6 +5,7 @@
     android:layout_height="match_parent">
 
     <androidx.recyclerview.widget.RecyclerView
+        android:layout_below="@id/btn_exit"
         android:id="@+id/main_recycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -14,20 +15,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btn_enter"
-        android:text="enter">
+        android:text="crear clase"
+        android:layout_marginRight="200dp">
 
     </Button>
     <Button
         android:id="@+id/btn_unirse"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/btn_enter"
+        android:layout_marginRight="200dp"
         android:text="unirse"/>
     <Button
         android:id="@+id/btn_exit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/btn_unirse"
+        android:layout_marginLeft="200dp"
         android:text="EXIT"/>
 
 </RelativeLayout>

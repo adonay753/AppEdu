@@ -73,6 +73,7 @@ public class JoinActivity extends AppCompatActivity {
 
     private void sendHome() {
         Intent intent = new Intent(JoinActivity.this, mainSeciest.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         intent.putExtra("rol", "Alumno");
         startActivity(intent);
         finish();

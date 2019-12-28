@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -58,11 +59,27 @@ public class HomeFragment extends Fragment {
         btn = root.findViewById(R.id.btn_enter);
         join = root.findViewById(R.id.btn_unirse);
         exit = root.findViewById(R.id.btn_exit);
+
+        if (rol.equals("Profesor")) {
+            join.setVisibility(View.INVISIBLE);
+        } else if (rol.equals("Alumno")) {
+            btn.setVisibility(View.INVISIBLE);
+        } else if (rol.equals("Padre")) {
+            join.setVisibility(View.INVISIBLE);
+            btn.setVisibility(View.INVISIBLE);
+            RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(
+                    RelativeLayout.LayoutParams.MATCH_PARENT,
+                    RelativeLayout.LayoutParams.WRAP_CONTENT
+            );
+            params.setMargins(150, 0, 150, 0);
+            exit.setLayoutParams(params);
+        }
         exit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 usuario.signOut();
                 Intent intent = new Intent(getActivity(), MainActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
                 getActivity().finish();
             }
@@ -109,6 +126,7 @@ public class HomeFragment extends Fragment {
                         if (rol.equals("Profesor")){
                             Intent intent = new Intent(getActivity(), SelectActivity.class);
                             intent.putExtra("token", getRef(position).getKey());
+                            intent.putExtra("rol", rol);
                             startActivity(intent);
                         } else if (rol.equals("Alumno")) {
                             final String token = getRef(position).getKey();
@@ -122,6 +140,7 @@ public class HomeFragment extends Fragment {
                                                 Intent intent = new Intent(getActivity(), TaskActivity.class);
                                                 intent.putExtra("token", token);
                                                 intent.putExtra("usuario", idProfesor.getKey());
+                                                intent.putExtra("rol", rol);
                                                 startActivity(intent);
                                             }
                                         }
