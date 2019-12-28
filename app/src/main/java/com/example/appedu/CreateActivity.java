@@ -38,6 +38,7 @@ public class CreateActivity extends AppCompatActivity {
         clave = findViewById(R.id.txt_clave);
         crear = findViewById(R.id.btn_crear);
         token = String.valueOf(UUID.randomUUID());
+        token = token.substring(token.length()-12, token.length()-5);
         clave.setText(token);
 
         cursosRef = FirebaseDatabase.getInstance().getReference();
