@@ -12,7 +12,9 @@
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:orientation="vertical"
-        android:background="@android:color/black">
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="7dp"
+        android:background="@drawable/borde">
 
         <TextView
             android:layout_width="match_parent"
@@ -20,19 +22,20 @@
             android:id="@+id/text_card_curso"
             android:text="Curso"
             android:textSize="40dp"
-            android:textColor="@color/primary_dark"/>
+
+            android:textColor="@color/primary_text"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/text_card_materia"
             android:text="Materia"
             android:textSize="30dp"
-            android:textColor="@color/primary_dark"/>
+            android:textColor="@color/primary_text"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/text_card_profesor"
-            android:textColor="@color/primary_dark"
+            android:textColor="@color/primary_text"
             android:textSize="25dp"
             android:text="Profesor"/>
 

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE navigation [<!ELEMENT navigation (fragment)*><!ATTLIST navigationxmlns:android CDATA #REQUIREDxmlns:app CDATA #REQUIREDxmlns:tools CDATA #REQUIREDandroid:id CDATA #REQUIREDapp:startDestination CDATA #REQUIRED><!ELEMENT fragment (#PCDATA)><!ATTLIST fragmentandroid:id CDATA #REQUIREDandroid:label CDATA #IMPLIEDandroid:name CDATA #REQUIREDtools:layout CDATA #IMPLIED>]>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -20,26 +20,20 @@
     <fragment
         android:id="@+id/nav_slideshow"
         android:name="com.example.appedu.ui.Acti_Tareas.SlideshowFragment"
-
         android:label="menu_slideshow"
-
         tools:layout="@layout/fragment_slideshow" />
 
     <fragment
         android:id="@+id/nav_tools"
         android:name="com.example.appedu.ui.Calendario.ToolsFragment"
-
         android:label="menu_tools"
-
         tools:layout="@layout/fragment_tools" />
 
     <fragment
         android:id="@+id/nav_share"
-        android:name="com.example.appedu.ui.Notas.ShareFragment"
-
-        android:label="menu_share"
-
-        tools:layout="@layout/fragment_share" />
+        android:name="com.example.appedu."
+        tools:layout="@layout/fragment_share"
+        android:label="menu_share"/>
 
     <fragment
         android:id="@+id/nav_send"

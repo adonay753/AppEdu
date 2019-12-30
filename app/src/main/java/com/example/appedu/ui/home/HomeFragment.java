@@ -39,8 +39,7 @@ public class HomeFragment extends Fragment {
     private FirebaseAuth usuario;
     private String rol;
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         rol = getActivity().getIntent().getStringExtra("rol");
 

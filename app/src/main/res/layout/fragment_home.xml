@@ -16,20 +16,23 @@
         android:layout_height="wrap_content"
         android:id="@+id/btn_enter"
         android:text="crear clase"
-        android:layout_marginRight="200dp">
+        android:drawableBottom="@color/common_google_signin_btn_text_light_default"
+        android:layout_marginRight="200dp"/>
 
-    </Button>
+
     <Button
         android:id="@+id/btn_unirse"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginRight="200dp"
+        android:drawableBottom="@color/common_google_signin_btn_text_light_default"
         android:text="unirse"/>
     <Button
         android:id="@+id/btn_exit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="200dp"
+        android:drawableBottom="@color/common_google_signin_btn_text_light_default"
         android:text="EXIT"/>
 
 </RelativeLayout>

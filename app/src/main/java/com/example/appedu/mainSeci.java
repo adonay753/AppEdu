@@ -2,8 +2,12 @@ package com.example.appedu;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
+
+import android.view.MenuItem;
 import android.view.View;
 
 import androidx.annotation.NonNull;
@@ -60,7 +64,8 @@ public class mainSeci extends AppCompatActivity {
         NavigationUI.setupWithNavController(navigationView, navController);
     }
 
-    @Override
+
+    /*@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         //getMenuInflater().inflate(R.menu.main_seci, menu);
@@ -71,7 +76,14 @@ public class mainSeci extends AppCompatActivity {
         //getMenuInflater().inflate(R.menu.me);
         return true;
 
-    }
+    }*/
+
+
+
+
+
+
+
 
 
     @Override
@@ -81,6 +93,8 @@ public class mainSeci extends AppCompatActivity {
                 || super.onSupportNavigateUp();
 
     }
+
+
 
 
 }
