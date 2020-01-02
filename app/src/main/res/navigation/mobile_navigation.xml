@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><!DOCTYPE navigation [<!ELEMENT navigation (fragment)*><!ATTLIST navigationxmlns:android CDATA #REQUIREDxmlns:app CDATA #REQUIREDxmlns:tools CDATA #REQUIREDandroid:id CDATA #REQUIREDapp:startDestination CDATA #REQUIRED><!ELEMENT fragment (#PCDATA)><!ATTLIST fragmentandroid:id CDATA #REQUIREDandroid:label CDATA #IMPLIEDandroid:name CDATA #REQUIREDtools:layout CDATA #IMPLIED>]>
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE navigation >
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
