@@ -48,7 +48,7 @@ public class mainSecipad extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         mAuth = FirebaseAuth.getInstance();
-        rootRef = FirebaseDatabase.getInstance().getReference().child("Usuarios").child(mAuth.getUid());
+        rootRef = FirebaseDatabase.getInstance().getReference();
 
         /*FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -94,7 +94,7 @@ public class mainSecipad extends AppCompatActivity {
         TextView textRol = headRol.findViewById(R.id.text_rol);
         textRol.setText("Padre");
         final TextView textNombre = headRol.findViewById(R.id.text_nombre);
-        rootRef.addValueEventListener(new ValueEventListener() {
+        rootRef.child("Usuarios").child(mAuth.getUid()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 textNombre.setText(dataSnapshot.child("Nombres").getValue().toString() + " " + dataSnapshot.child("Apellidas").getValue().toString());
