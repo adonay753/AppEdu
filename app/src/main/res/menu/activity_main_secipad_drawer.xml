@@ -4,14 +4,20 @@
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
+
+        <!--
         <item
             android:id="@+id/nav_bar_Prof"
             android:icon="@drawable/sharp_menu_24"
             android:title="@string/regPad"/>
+            -->
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/baseline_home_24"
             android:title="@string/menu_home" />
+
+        <!--
+
         <item
             android:id="@+id/nav_gallery"
             android:icon="@drawable/baseline_file_copy_24"
@@ -21,13 +27,15 @@
             android:icon="@drawable/baseline_list_24"
             android:title="@string/menu_tareas"/>
 
+            -->
+
         <item
             android:id="@+id/nav_tools"
-            android:icon="@drawable/baseline_calendar_today_24"
-            android:title="@string/menu_calendario" />
+            android:icon="@drawable/baseline_exit_to_app_black_24"
+            android:title="@string/logout" />
 
     </group>
-
+<!--
     <item android:title="@string/calificaciones">
         <menu>
             <item
@@ -41,5 +49,6 @@
                 android:title="@string/menu_send" />
         </menu>
     </item>
+    -->
 
 </menu>

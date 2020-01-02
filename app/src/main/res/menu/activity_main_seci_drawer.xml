@@ -4,14 +4,17 @@
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
+        <!--
         <item
             android:id="@+id/nav_bar_Prof"
             android:icon="@drawable/sharp_menu_24"
-            android:title="@string/regProf"/>
+            android:title="@string/regProf"/> -->
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/baseline_home_24"
             android:title="@string/menu_home" />
+
+        <!--
         <item
             android:id="@+id/nav_gallery"
             android:icon="@drawable/baseline_file_copy_24"
@@ -20,26 +23,28 @@
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/baseline_list_24"
             android:title="@string/menu_tareas"/>
+        -->
 
         <item
             android:id="@+id/nav_tools"
-            android:icon="@drawable/baseline_calendar_today_24"
-            android:title="@string/menu_calendario" />
+            android:icon="@drawable/baseline_exit_to_app_black_24"
+            android:title="@string/logout" />
 
     </group>
+    <!--
+        <item android:title="@string/calificaciones">
+            <menu>
+                <item
+                    android:id="@+id/nav_notas"
+                    android:icon="@drawable/outline_insert_drive_file_24"
+                    android:title="@string/menu_notas" />
 
-    <item android:title="@string/calificaciones">
-        <menu>
-            <item
-                android:id="@+id/nav_notas"
-                android:icon="@drawable/outline_insert_drive_file_24"
-                android:title="@string/menu_notas" />
-
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/baseline_add_24"
-                android:title="@string/menu_send" />
-        </menu>
-    </item>
+                <item
+                    android:id="@+id/nav_send"
+                    android:icon="@drawable/baseline_add_24"
+                    android:title="@string/menu_send" />
+            </menu>
+        </item>
+        -->
 
 </menu>

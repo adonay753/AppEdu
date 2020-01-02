@@ -35,7 +35,7 @@
                 android:layout_height="49dp"
                 android:layout_marginTop="50dp"
                 android:background="@drawable/borde"
-                android:drawableStart="@drawable/baseline_person_24"
+                android:drawableStart="@drawable/baseline_person_white_24"
                 android:drawablePadding="10dp"
                 android:ems="10"
                 android:hint="@string/correo"
@@ -72,8 +72,8 @@
                 android:layout_width="274dp"
                 android:layout_height="49dp"
                 android:layout_marginTop="8dp"
-                android:drawableBottom="@color/primary_dark"
                 android:text="@string/registrate"
+                android:textColor="@color/primary_light"
                 android:gravity="center"/>
 
 
