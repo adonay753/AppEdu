@@ -88,7 +88,7 @@ public class mainSeciest extends AppCompatActivity {
 
         final View headRol = navigationView.getHeaderView(0);
         TextView textRol = headRol.findViewById(R.id.text_rol);
-        textRol.setText("Profesor");
+        textRol.setText("Alumno");
         final TextView textNombre = headRol.findViewById(R.id.text_nombre);
         rootRef.addValueEventListener(new ValueEventListener() {
             @Override

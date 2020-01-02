@@ -92,7 +92,7 @@ public class mainSecipad extends AppCompatActivity {
 
         final View headRol = navigationView.getHeaderView(0);
         TextView textRol = headRol.findViewById(R.id.text_rol);
-        textRol.setText("Profesor");
+        textRol.setText("Padre");
         final TextView textNombre = headRol.findViewById(R.id.text_nombre);
         rootRef.addValueEventListener(new ValueEventListener() {
             @Override
