@@ -6,12 +6,16 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.example.appedu.Release.MessageAllActivity;
 import com.example.appedu.Release.MessageContentActivity;
+import com.example.appedu.Task.UploadTaskAllActivity;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -106,6 +110,25 @@ public class ListFatherActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_all_send, menu);
+        MenuItem mensaje = menu.findItem(R.id.send_task_all);
+        mensaje.setVisible(false);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.send_message_all) {
+            Intent intent = new Intent(ListFatherActivity.this, MessageAllActivity.class);
+            intent.putExtra("token", token);
+            intent.putStringArrayListExtra("usuario", usuario);
+            startActivity(intent);
+        }
+        return true;
     }
 
 }

@@ -117,7 +117,10 @@ public class HomeFragment extends Fragment {
             protected void onBindViewHolder(@NonNull CardViewHolder cardViewHolder, int i, @NonNull Card card) {
                 cardViewHolder.setCurso(card.getCurso());
                 cardViewHolder.setMateria(card.getMateria());
-                cardViewHolder.setProfesor(card.getProfesor());
+                if (rol.equals("Profesor"))
+                    cardViewHolder.setProfesor(null);
+                else
+                    cardViewHolder.setProfesor(card.getProfesor());
 
                 final int position = i;
                 cardViewHolder.itemView.setOnClickListener(new View.OnClickListener() {

@@ -9,10 +9,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 
 public class SelectActivity extends AppCompatActivity {
 
     private Button alumno, padre;
+    private TextView codigo;
     private Toolbar toolbar;
     private String token;
     private String rol;
@@ -24,6 +26,8 @@ public class SelectActivity extends AppCompatActivity {
 
         token = getIntent().getStringExtra("token");
         rol = getIntent().getStringExtra("rol");
+        codigo = findViewById(R.id.class_key);
+        codigo.setText(token);
 
         toolbar = findViewById(R.id.toolbar_select);
         toolbar.setTitle("SELECIONAR OPCIÓN");
