@@ -34,7 +34,6 @@ import com.google.firebase.database.ValueEventListener;
 
 public class HomeFragment extends Fragment {
     private RecyclerView list;
-    private Button btn, join, exit;
     private DatabaseReference base;
     private FirebaseAuth usuario;
     private String rol;
@@ -55,48 +54,7 @@ public class HomeFragment extends Fragment {
         base.keepSynced(true);
         View root = inflater.inflate(R.layout.fragment_home, container, false);
         list = root.findViewById(R.id.main_recycler);
-        btn = root.findViewById(R.id.btn_enter);
-        join = root.findViewById(R.id.btn_unirse);
-        exit = root.findViewById(R.id.btn_exit);
 
-        if (rol.equals("Profesor")) {
-            join.setVisibility(View.INVISIBLE);
-        } else if (rol.equals("Alumno")) {
-            btn.setVisibility(View.INVISIBLE);
-        } else if (rol.equals("Padre")) {
-            join.setVisibility(View.INVISIBLE);
-            btn.setVisibility(View.INVISIBLE);
-            RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(
-                    RelativeLayout.LayoutParams.MATCH_PARENT,
-                    RelativeLayout.LayoutParams.WRAP_CONTENT
-            );
-            params.setMargins(150, 0, 150, 0);
-            exit.setLayoutParams(params);
-        }
-        exit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                usuario.signOut();
-                Intent intent = new Intent(getActivity(), MainActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                startActivity(intent);
-                getActivity().finish();
-            }
-        });
-        join.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity().getApplication(), JoinActivity.class);
-                startActivity(intent);
-            }
-        });
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity().getApplication(), CreateActivity.class);
-                startActivity(intent);
-            }
-        });
         list.setHasFixedSize(true);
         list.setLayoutManager(new LinearLayoutManager(getActivity()));
         return root;

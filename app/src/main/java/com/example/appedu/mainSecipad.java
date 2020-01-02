@@ -2,9 +2,14 @@ package com.example.appedu;
 
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
+
+import com.example.appedu.Login.MainActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
+
+import android.view.MenuItem;
 import android.view.View;
 
 import androidx.annotation.NonNull;
@@ -24,15 +29,15 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
 public class mainSecipad extends AppCompatActivity {
 
+    private AppBarConfiguration mAppBarConfiguration;
     private DatabaseReference rootRef;
     private FirebaseAuth mAuth;
-
-    private AppBarConfiguration mAppBarConfiguration;
 
     @SuppressLint("ResourceType")
     @Override
@@ -42,14 +47,17 @@ public class mainSecipad extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
+        mAuth = FirebaseAuth.getInstance();
+        rootRef = FirebaseDatabase.getInstance().getReference().child("Usuarios").child(mAuth.getUid());
+
+        /*FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
-        });
+        });*/
 
 
         rootRef = FirebaseDatabase.getInstance().getReference();
@@ -67,6 +75,36 @@ public class mainSecipad extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                if (menuItem.getItemId() == R.id.nav_tools) {
+                    mAuth.signOut();
+                    Intent intent = new Intent(mainSecipad.this, MainActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(intent);
+                    finish();
+                }
+                return true;
+            }
+        });
+
+        final View headRol = navigationView.getHeaderView(0);
+        TextView textRol = headRol.findViewById(R.id.text_rol);
+        textRol.setText("Profesor");
+        final TextView textNombre = headRol.findViewById(R.id.text_nombre);
+        rootRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                textNombre.setText(dataSnapshot.child("Nombres").getValue().toString() + " " + dataSnapshot.child("Apellidas").getValue().toString());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 
     @Override
