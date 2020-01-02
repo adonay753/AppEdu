@@ -2,8 +2,12 @@ package com.example.appedu;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
+
+import android.view.MenuItem;
 import android.view.View;
 
 import androidx.annotation.NonNull;
@@ -39,6 +43,15 @@ public class mainSeci extends AppCompatActivity {
         setContentView(R.layout.activity_main_seci);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         mAppBarConfiguration = new AppBarConfiguration.Builder(
@@ -51,7 +64,8 @@ public class mainSeci extends AppCompatActivity {
         NavigationUI.setupWithNavController(navigationView, navController);
     }
 
-    @Override
+
+    /*@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         //getMenuInflater().inflate(R.menu.main_seci, menu);
@@ -62,7 +76,14 @@ public class mainSeci extends AppCompatActivity {
         //getMenuInflater().inflate(R.menu.me);
         return true;
 
-    }
+    }*/
+
+
+
+
+
+
+
 
 
     @Override
@@ -72,6 +93,8 @@ public class mainSeci extends AppCompatActivity {
                 || super.onSupportNavigateUp();
 
     }
+
+
 
 
 }
