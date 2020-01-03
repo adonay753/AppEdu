@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
     tools:context=".Release.MessageActivity">
 
 
@@ -12,7 +13,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
-        android:hint="Escriba su mensaje"/>
+        android:background="@drawable/borde"
+        android:gravity="center_horizontal"
+        android:hint="Escriba su mensaje"
+        android:padding="15dp" />
+
     <Button
         android:id="@+id/btn_message"
         android:layout_marginTop="50dp"

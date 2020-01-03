@@ -9,8 +9,17 @@
         android:id="@+id/toolbar_select"
         layout="@layout/toolbar_all"/>
     <TextView
+
+        android:layout_marginTop="65dp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:text="ID Clase"/>
+    <TextView
         android:id="@+id/class_key"
         android:layout_marginTop="50dp"
+        android:background="@drawable/borde"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/toolbar_select"
         android:layout_width="wrap_content"

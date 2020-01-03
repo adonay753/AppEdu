@@ -4,17 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center_horizontal"
     tools:context=".Task.UploadTaskAllActivity">
+
 
     <TextView
         android:id="@+id/textView_all"
         android:layout_width="wrap_content"
-
+        android:gravity="center"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-light"
         android:text="Subir Archivo!"
         android:textAlignment="center"
         android:textSize="30dp"
+        android:padding="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -26,14 +29,18 @@
 
     <EditText
         android:id="@+id/txtTituloProfe_all"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="63dp"
         android:layout_below="@id/textView_all"
+        android:background="@drawable/borde"
+        android:ems="10"
+        android:foregroundGravity="center_horizontal"
+        android:gravity="center"
         android:hint="Titulo"
+        android:padding="15dp"
         android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.375"
@@ -41,14 +48,16 @@
 
     <EditText
         android:id="@+id/txtTarea_all"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="63dp"
         android:layout_below="@+id/txtTituloProfe_all"
+        android:background="@drawable/borde"
+        android:gravity="center"
         android:hint="Descripcion"
+        android:padding="15dp"
         android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.535"
@@ -68,5 +77,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.748"
         tools:ignore="MissingConstraints" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,17 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Task.UploadTaskActivity">
+    tools:context=".Task.UploadTaskActivity"
+    android:layout_gravity="center_horizontal">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
-
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-light"
         android:text="Subir Archivo!"
         android:textAlignment="center"
         android:textSize="30dp"
+        android:padding="@dimen/fab_margin"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -26,32 +27,39 @@
 
     <EditText
         android:id="@+id/txtTituloProfe"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="63dp"
         android:layout_below="@id/textView"
+        android:background="@drawable/borde"
+        android:drawablePadding="15dp"
+        android:ems="10"
+        android:gravity="center"
         android:hint="Titulo"
+        android:padding="15dp"
         android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.375"
+        app:layout_constraintVertical_bias="0.38"
         tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/txtTarea"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="74dp"
         android:layout_below="@+id/txtTituloProfe"
+        android:background="@drawable/borde"
+        android:ems="10"
         android:hint="Descripcion"
+        android:gravity="center_horizontal"
+        android:padding="15dp"
         android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.535"
         tools:ignore="MissingConstraints" />
 
     <Button
@@ -68,5 +76,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.748"
         tools:ignore="MissingConstraints" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

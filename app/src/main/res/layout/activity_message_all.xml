@@ -11,10 +11,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
+        android:background="@drawable/borde"
+        android:padding="15dp"
+        android:ems="10"
+        android:gravity="center"
         android:hint="Escriba su mensaje"/>
     <Button
         android:id="@+id/btn_message_all"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="25dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/txt_message_all"
